@@ -1,38 +1,31 @@
-# Fonction pour ouvrir un fichier txt + lire + lecture
+
+# Fonction pour filtrer les données d'une ligne
+def filtrer_list(list_name, num_line, first_char, separator):
+    return list_name[num_line][first_char:].split(separator)
+
+# Fonction pour ouvrir un fichier txt + lire + trier
+
 
 def ouverture(url):
     with open(url, 'r') as f:
-        entries = [line.strip() for line in f]
-    print(entries, "iuhuhbj")
-    return entries
+        lines = f.read().splitlines()
 
-# Pour obtenir uniquement les valeurs
+        alphabet = filtrer_list(lines, 0, 4, ',')
 
+        states = filtrer_list(lines, 1, 4, ',')
 
-def split_values_in_table(entries):
-    print("\n\n-- RECUPERATION --")
-    for i in entries:
-        print(i, " ligne 1")
-        splitEntries = [line.split(" ") for line in entries]
-    print("End\n\n")
+        initial_state = filtrer_list(lines, 2, 4, ',')
 
-    return splitEntries
+        final_state = filtrer_list(lines, 3, 4, ',')
 
-# Def pour print une matrice
+        list_transitions = []
+        for line in lines[4:]:
+            list_transitions.append(line)
 
-
-def temporary_print_matrix(matrix):
-    print("-- MATRIX --")
-    for line in matrix:
-        print("[", end="")
-        for i in line:
-            print(i, end=" ")
-        print("]")
+    return alphabet, states, initial_state, final_state
 
 
 if __name__ == '__main__':
-    print('BEGINNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN')
-    entries = ouverture("automata_test.txt")
-    splitEntries = split_values_in_table(entries)
-    print(splitEntries, " ligne 2")
-    temporary_print_matrix(splitEntries)
+    print('BEGIN\n\n')
+
+    alphabet, states, initial, final = ouverture("automata_test.txt")
