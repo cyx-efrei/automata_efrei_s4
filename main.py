@@ -13,7 +13,7 @@ def ouverture(url):
     with open(url, 'r') as f:
         lines = f.read().splitlines()
 
-        alphabet = filtrer_list(lines, 0, 4, ',')
+        alphabet = filtrer_list(lines, 0, 4, ', ')
 
         states = filtrer_list(lines, 1, 4, ',')
 
@@ -25,9 +25,10 @@ def ouverture(url):
         for line in lines[4:]:
             list_transitions.append(line)
 
-    return alphabet, states, initial_state, final_state
+    return alphabet, states, initial_state, final_state, list_transitions
 
 
+# PRINT MATRIX
 def get_arrow(i, initial, final):
     if i in initial and i in final:
         return ("<-->")
@@ -42,21 +43,45 @@ def get_arrow(i, initial, final):
 
 
 # TO PRINT THE MATRIX, WE USE THE LIBRARY PRETTYTABLE
-def print_matrix(alphabet, states, initial, final):
+def print_matrix(alphabet, states, initial, final, transitions):
     x = PrettyTable()
     #x.field_names = [" ", "0"] + alphabet
 
-    enter_initial = []
+    list_initial = []
+    list_states = []
     for i in states:
-        enter_initial.append(get_arrow(i, initial, final))
+        # FOR ARROW / FIRST COLUMN
+        list_initial.append(get_arrow(i, initial, final))
+        # FOR LIST OF STATES / SCD COLUMN
+        list_states.append(i)
 
-    x.add_column("", enter_initial)
+    # ON ADD LES LISTES AU TABLEAU
+    x.add_column("", list_initial)
+    x.add_column("STATES", list_states)
+
+    # FOR TRANSITIONS
+    for letter in alphabet:
+        list_transitions = []
+        for i in states:
+            for transition in transitions:
+                found = 0
+                if transition[0] == i and transition[2] == letter:
+                    found = 1
+                    list_transitions.append(transition[4])
+                    break
+            if found == 0:
+                list_transitions.append("--")
+        x.add_column("Transition " + letter, list_transitions)
+
+        print(list_transitions)
+
     print(x)
 
 
 if __name__ == '__main__':
     print('BEGIN\n\n')
 
-    alphabet, states, initial, final = ouverture("automata_test.txt")
-    print(alphabet)
-    print_matrix(alphabet, states, initial, final)
+    alphabet, states, initial, final, list_transitions = ouverture(
+        "automata_test.txt")
+    print(alphabet, "lk")
+    print_matrix(alphabet, states, initial, final, list_transitions)
