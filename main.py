@@ -24,13 +24,6 @@ def ouverture(url):
 
     return alphabet, states, initial_state, final_state
 
-
-if __name__ == '__main__':
-    print('BEGIN\n\n')
-
-    alphabet, states, initial, final = ouverture("automata_test.txt")
-
-
 def is_deterministic(states, start_states, accept_states):
  # Vérification des états initiaux
     if len(start_states) != 1:
@@ -44,3 +37,11 @@ def is_deterministic(states, start_states, accept_states):
             return False
 
     return True
+
+if __name__ == '__main__':
+    print('BEGIN\n\n')
+
+    alphabet, states, initial, final = ouverture("automata_test.txt")
+
+
+
