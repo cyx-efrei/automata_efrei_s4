@@ -78,7 +78,7 @@ def print_matrix(alphabet, states, initial, final, transitions):
 
             # SI ON NE TROUVE AUCUNE TRANSITION
             if transition_string == '':
-                transition_string += "-"
+                transition_string += "---"
 
             # WE ADD FOR THE LIST THAT WILL BE ADDED TO THE FINAL TABLE AND WE DELETE THE LAST CHAR WHICH IS A ","
             list_transitions.append(transition_string.strip(","))
