@@ -28,28 +28,21 @@ def ouverture(url):
     return alphabet, states, initial_state, final_state, list_transitions
 
 
-if __name__ == '__main__':
-    print('BEGIN\n\n')
-
-    alphabet, states, initial, final, list_transitions = ouverture(
-        "automata_test.txt")
-
-    print(alphabet, states, initial, final, list_transitions)
-    print_matrix(alphabet, states, initial, final, list_transitions)
-
-
 def is_deterministic(alphabet, states, initial, final, transitions):
  # Vérification des états initiaux
     if len(initial) != 1:
         return False
+
+    '''   --------------------------------- INUTILE ???
     if initial[0] not in states:
         return False
-
+    '''
+    '''   --------------------------------- PAS CAPÉ ??
     # Vérification des états d'acceptation
     for accept_state in accept_states:
         if accept_state not in states:
             return False
-
+'''
     # Vérifier que chaque transition a un seul symbole d'entrée
     for state in states:
         letter = set()
@@ -62,3 +55,15 @@ def is_deterministic(alphabet, states, initial, final, transitions):
                 letter.add(actual_letter)
 
     return True
+
+
+if __name__ == '__main__':
+    print('BEGIN\n\n')
+
+    alphabet, states, initial, final, list_transitions = ouverture(
+        "automata_test.txt")
+
+    print(alphabet, states, initial, final, list_transitions)
+    print_matrix(alphabet, states, initial, final, list_transitions)
+
+    print(is_deterministic(alphabet, states, initial, final, list_transitions))
