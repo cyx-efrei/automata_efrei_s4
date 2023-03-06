@@ -96,4 +96,7 @@ if __name__ == '__main__':
     alphabet, states, initial, final, list_transitions = ouverture(
         "automata_test.txt")
 
+    print(alphabet, "\n", states, "\n", initial,
+          "\n", final, "\n", list_transitions)
+
     print_matrix(alphabet, states, initial, final, list_transitions)
