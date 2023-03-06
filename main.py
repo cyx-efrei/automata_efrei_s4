@@ -24,17 +24,37 @@ def ouverture(url):
 
     return alphabet, states, initial_state, final_state
 
-def is_deterministic(states, start_states, accept_states):
- # Vérification des états initiaux
-    if len(start_states) != 1:
-        return False
-    if start_states[0] not in states:
-        return False
+def is_deterministic(states, initial_state, accept_states, list_transition):
 
-    # Vérification des états d'acceptation
-    for accept_state in accept_states:
-        if accept_state not in states:
+ # Vérification des états initiaux
+    if len(initial_state) != 1:
+        return False
+    if initial_state[0] not in states:
+        return False
+# Vérification des états d'acceptation
+    for i in accept_states:
+        if i not in states:
             return False
+
+    for state in states :
+        list_transition = []
+        for lettre in alphabet :
+            for transition in list_transition:
+                if lettre in transition[2] :
+                    return False
+                else:
+                    list_transition.append(transition[2])
+
+
+
+    #voir que chaque state envoie un fois et unique fois
+    """for i in list_transition:
+        if list_transition[i][2]== list_transition[i+1][2] and list_transition[i]== list_transition[i+1]:
+            return False"""
+
+
+# ENTRE FOR STATE ET FOR LATTER METTRE UNE CREATION DE TABLE
+
 
     return True
 
