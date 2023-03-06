@@ -1,4 +1,5 @@
 from standard import is_standard, standardize
+from deterministic import is_deterministic
 from table_display import print_matrix
 
 # Fonction pour filtrer les données d'une ligne
@@ -29,25 +30,6 @@ def ouverture(url):
     return alphabet, states, initial_state, final_state, list_transitions
 
 
-# TO COMPLETE AN AUTOMATON
-def complete(alphabet, states, initial, final, transitions):
-    for state in states:
-        letters = set()
-        for transition in transitions:
-            if transition[0] == state:
-                actual_letter = transition[2]
-                if actual_letter not in letters:
-                    letters.add(actual_letter)
-        print(letters)
-        # for values in letters:
-        for l_alphabet in alphabet:
-            if l_alphabet not in letters:
-                transitions.append(state + "," + l_alphabet + ",P")
-
-    print_matrix(alphabet, states, initial, final, transitions)
-    print(is_standard(states, initial, final, list_transitions))
-
-
 if __name__ == '__main__':
     print('BEGIN\n\n')
 
@@ -57,9 +39,10 @@ if __name__ == '__main__':
     #print(alphabet, "\n", states, "\n", initial, "\n", final, "\n", list_transitions)
 
     print_matrix(alphabet, states, initial, final, list_transitions)
-    print(is_standard(states, initial, final, list_transitions))
+    #print(is_standard(states, initial, final, list_transitions))
+    print(is_deterministic(alphabet, states, initial, final, list_transitions))
 
     # print(is_standard(alphabet, states, initial, final, list_transitions))
 
     #complete(alphabet, states, initial, final, list_transitions)
-    standardize(alphabet, states, initial, final, list_transitions)
+    #standardize(alphabet, states, initial, final, list_transitions)
