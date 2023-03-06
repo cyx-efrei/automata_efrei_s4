@@ -95,7 +95,7 @@ def est_standard(alphabet, states, initial, final, transitions):
     Un automate est standard si:
     - il a un seul état initial
     - tous les états finaux sont distincts
-    - il n'y a pas de transitions avec epsilon comme symbole d'entrée
+    - il n'y a pas de transitions avec epsilon comme symbole d'entrée ??????
     - chaque transition a un seul symbole d'entrée
     """
     # Vérifier s'il y a un seul état initial
@@ -105,11 +105,6 @@ def est_standard(alphabet, states, initial, final, transitions):
     # Vérifier que tous les états finaux sont distincts
     if len(set(final)) != len(final):
         return False
-
-    # Vérifier s'il y a des transitions avec epsilon comme symbole d'entrée
-    for transition in transitions:
-        if transition[2] == 'epsilon':
-            return False
 
     # Vérifier que chaque transition a un seul symbole d'entrée
     for state in states:
@@ -131,5 +126,8 @@ if __name__ == '__main__':
 
     alphabet, states, initial, final, list_transitions = ouverture(
         "automata_test.txt")
-    est_standard(alphabet, states, initial, final, list_transitions)
+
     print_matrix(alphabet, states, initial, final, list_transitions)
+
+    print("res : ", est_standard(alphabet, states,
+          initial, final, list_transitions))
