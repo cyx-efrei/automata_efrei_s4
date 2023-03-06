@@ -88,24 +88,25 @@ def print_matrix(alphabet, states, initial, final, transitions):
     x.align = "c"
     print(x)
 
-
 def est_standard(alphabet, states, initial, final, transitions):
     """
     Vérifie si un automate est standard ou non.
     Un automate est standard si:
     - il a un seul état initial
     - tous les états finaux sont distincts
-    - il n'y a pas de transitions avec epsilon comme symbole d'entrée ??????
+    - il n'y a pas de transitions avec epsilon comme symbole d'entrée
     - chaque transition a un seul symbole d'entrée
     """
     # Vérifier s'il y a un seul état initial
     if len(initial) != 1:
         return False
-
     # Vérifier que tous les états finaux sont distincts
     if len(set(final)) != len(final):
         return False
-
+    # Vérifier s'il y a des transitions avec epsilon comme symbole d'entrée
+    for transition in transitions:
+        if transition[2] == 'epsilon':
+            return False
     # Vérifier que chaque transition a un seul symbole d'entrée
     for state in states:
         symbols = set()
@@ -115,10 +116,57 @@ def est_standard(alphabet, states, initial, final, transitions):
                 if symbol in symbols:
                     return False
                 symbols.add(symbol)
-
     # Si toutes les conditions sont satisfaites, l'automate est standard
     print("Automate standard")
     return True
+
+def est_deterministe(alphabet, states, initial, final, transitions):
+    """
+    Vérifie si un automate est déterministe ou non.
+    Un automate est déterministe si chaque état a exactement une transition
+    sortante pour chaque symbole d'entrée de l'alphabet.
+    """
+    # Créer un dictionnaire de transitions pour chaque état et symbole d'entrée
+    trans_dict = {}
+    for state in states:
+        trans_dict[state] = {}
+        for sym in alphabet:
+            trans_dict[state][sym] = []
+
+    for transition in transitions:
+        source_state = transition[0]
+        input_sym = transition[2]
+        dest_state = transition[4]
+
+        # Vérifier que l'état source, le symbole d'entrée et l'état de destination sont valides
+        if source_state not in states:
+            print(f"Erreur: l'état source {source_state} n'est pas valide.")
+            return
+        if input_sym not in alphabet:
+            print(f"Erreur: le symbole d'entrée {input_sym} n'est pas valide.")
+            return
+        if dest_state not in states:
+            print(f"Erreur: l'état de destination {dest_state} n'est pas valide.")
+            return
+
+        # Ajouter la transition au dictionnaire de transitions
+        trans_dict[source_state][input_sym].append(dest_state)
+
+    # Vérifier que chaque état a exactement une transition sortante pour chaque symbole d'entrée
+    for state in states:
+        for sym in alphabet:
+            if len(trans_dict[state][sym]) > 1:
+                print(f"L'état {state} a plusieurs transitions sortantes pour le symbole d'entrée {sym}.")
+                print("N'est pas déterministe")
+                return
+            elif len(trans_dict[state][sym]) == 0:
+                print(f"L'état {state} n'a pas de transition sortante pour le symbole d'entrée {sym}.")
+                print("N'est pas déterministe")
+                return
+
+    # Si toutes les conditions sont satisfaites, l'automate est déterministe
+    print("Est déterministe")
+
 
 
 if __name__ == '__main__':
@@ -126,8 +174,6 @@ if __name__ == '__main__':
 
     alphabet, states, initial, final, list_transitions = ouverture(
         "automata_test.txt")
-
+    est_deterministe(alphabet, states, initial, final, list_transitions)
     print_matrix(alphabet, states, initial, final, list_transitions)
 
-    print("res : ", est_standard(alphabet, states,
-          initial, final, list_transitions))
