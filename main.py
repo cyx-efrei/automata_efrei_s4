@@ -62,9 +62,3 @@ def is_deterministic(alphabet, states, initial, final, transitions):
                 letter.add(actual_letter)
 
     return True
-
-
-if __name__ == '__main__':
-    print('BEGIN\n\n')
-
-    alphabet, states, initial, final = ouverture("automata_test.txt")
