@@ -11,7 +11,7 @@ Project of S4 in Finite Automata, Efrei.
 
 
 
-<br>
+<hr>
 
 
 ## Authors
