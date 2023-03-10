@@ -18,7 +18,7 @@ Project of S4 in Finite Automata, Efrei.
 
 <br><br>
 
-| Fcuntions | Description | Color Code |
+| Functions | Description | Status |
 |--------|-------------|------------|
 |is_deterministic| Check whether the automaton FA is deterministic. | ![Working](https://i.ibb.co/3FntR1c/1.png) |
 |is_complete| Check whether the deterministic automaton FA is complete.| ![Working](https://i.ibb.co/3FntR1c/1.png) |
