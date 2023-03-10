@@ -46,7 +46,7 @@ Project of S4 in Finite Automata, Efrei.
 <br>
 <hr>
 <br>
-## How to use
+<h2>How to use</h2>
 
 Run in your terminal :
 
