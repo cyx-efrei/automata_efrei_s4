@@ -13,8 +13,8 @@ Project of S4 in Finite Automata, Efrei.
 | Status | Description | Color Code |
 |--------|-------------|------------|
 |Working| The Functionnality is available. | ![Working](https://i.ibb.co/3FntR1c/1.png) |
-|Others| Pending, Some anothers issues OR not checked that is it working or not.| ![Others](https://i.ibb.co/pQwqwcN/3.png)|
-|Not- Working| The function is not working Or need some modifications.|![Not-Working](https://i.ibb.co/wWtD8S6/2.png) |
+|Started| Pending, Some anothers issues OR not checked that is it working or not.| ![Others](https://i.ibb.co/pQwqwcN/3.png)|
+|Not-Started| The function is not working Or need some modifications.|![Not-Working](https://i.ibb.co/wWtD8S6/2.png) |
 
 <br>AUTO-MATON<br>
 
