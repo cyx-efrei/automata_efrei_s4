@@ -23,12 +23,9 @@ Project of S4 in Finite Automata, Efrei.
 |is_deterministic| Check whether the automaton FA is deterministic. | ![Working](https://i.ibb.co/3FntR1c/1.png) |
 |is_complete| Check whether the deterministic automaton FA is complete.| ![Working](https://i.ibb.co/3FntR1c/1.png) |
 |is_standard| Check whether the deterministic automaton FA is standard.| ![Working](https://i.ibb.co/3FntR1c/1.png) |
-|completion| Construction of a complete deterministic automaton from a deterministic
-automaton FA if the latter is not complete.| ![Working](https://i.ibb.co/3FntR1c/1.png)|
-|determinization | Construction of a complete deterministic automaton from a non-deterministic
-automaton FA.| ![Others](https://i.ibb.co/pQwqwcN/3.png)|
-|stantadization | Construction of standardize automaton from a non-standardize
-automaton.| ![Working](https://i.ibb.co/3FntR1c/1.png)|
+|completion| Construction of a complete deterministic automaton from a deterministic automaton FA if the latter is not complete.| ![Working](https://i.ibb.co/3FntR1c/1.png)|
+|determinization | Construction of a complete deterministic automaton from a non-deterministic automaton FA.| ![Others](https://i.ibb.co/pQwqwcN/3.png)|
+|stantadization | Construction of standardize automaton from a non-standardize automaton.| ![Working](https://i.ibb.co/3FntR1c/1.png)|
 |display_matrix| Display the automaton| ![Working](https://i.ibb.co/3FntR1c/1.png)|
 
 <br>
