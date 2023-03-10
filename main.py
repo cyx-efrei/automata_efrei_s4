@@ -1,5 +1,5 @@
 from standard import is_standard, standardize
-from deterministic import is_deterministic
+from deterministic import is_deterministic, is_complete, completion
 from table_display import print_matrix
 
 # Fonction pour filtrer les données d'une ligne
@@ -40,7 +40,20 @@ if __name__ == '__main__':
 
     print_matrix(alphabet, states, initial, final, list_transitions)
     #print(is_standard(states, initial, final, list_transitions))
-    print(is_deterministic(alphabet, states, initial, final, list_transitions))
+    #print(is_deterministic(states, initial, list_transitions))
+
+    if (is_complete(alphabet, states, list_transitions)) == False:
+        r = "0"
+        print("\nDo you want us to make the completion ? (y/n)\n ->", end="")
+        r = input()
+        while (r != 'y' or r != 'n'):
+            print("\nPlease enter y for yes or n for no\n ->", end="")
+            r = input()
+        if r == "y":
+            list_transitions = completion(alphabet, states, list_transitions)
+
+    print("NEW \n\n\n")
+    print_matrix(alphabet, states, initial, final, list_transitions)
 
     # print(is_standard(alphabet, states, initial, final, list_transitions))
 
