@@ -42,6 +42,16 @@ if __name__ == '__main__':
     #print(is_standard(states, initial, final, list_transitions))
     #print(is_deterministic(states, initial, list_transitions))
 
+    print("NEW \n\n\n")
+    print_matrix(alphabet, states, initial, final, list_transitions)
+
+    # print(is_standard(alphabet, states, initial, final, list_transitions))
+
+    #complete(alphabet, states, initial, final, list_transitions)
+    #standardize(alphabet, states, initial, final, list_transitions)
+
+
+''' ----------- MENU FOR COMPLETION
     if (is_complete(alphabet, states, list_transitions)) == False:
         r = "0"
         print("\nDo you want us to make the completion ? (y/n)\n ->", end="")
@@ -51,11 +61,4 @@ if __name__ == '__main__':
             r = input()
         if r == "y":
             list_transitions = completion(alphabet, states, list_transitions)
-
-    print("NEW \n\n\n")
-    print_matrix(alphabet, states, initial, final, list_transitions)
-
-    # print(is_standard(alphabet, states, initial, final, list_transitions))
-
-    #complete(alphabet, states, initial, final, list_transitions)
-    #standardize(alphabet, states, initial, final, list_transitions)
+'''
