@@ -26,7 +26,11 @@ Project of S4 in Finite Automata, Efrei.
 |completion| Construction of a complete deterministic automaton from a deterministic automaton FA if the latter is not complete.| ![Working](https://i.ibb.co/3FntR1c/1.png)|
 |determinization | Construction of a complete deterministic automaton from a non-deterministic automaton FA.| ![Others](https://i.ibb.co/pQwqwcN/3.png)|
 |stantadization | Construction of standardize automaton from a non-standardize automaton.| ![Working](https://i.ibb.co/3FntR1c/1.png)|
-|display_matrix| Display the automaton| ![Working](https://i.ibb.co/3FntR1c/1.png)|
+|display_matrix| Display the automaton.| ![Working](https://i.ibb.co/3FntR1c/1.png)|
+
+|TO DEFINE| calculating the equivalent minimal FA.| ![Others](https://i.ibb.co/pQwqwcN/3.png)|
+|TO DEFINE| Testing word recognition. | ![Others](https://i.ibb.co/pQwqwcN/3.png)|
+|TO DEFINE| Creating an automaton recognizing the complementary language. | ![Others](https://i.ibb.co/pQwqwcN/3.png)|
 
 <br>
 <hr>
