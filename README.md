@@ -37,7 +37,7 @@ Project of S4 in Finite Automata, Efrei.
 <hr>
 
 <br>
-## Authors
+<h2>Authors</h2>
 
 - [@Cyrilnkl](https://www.github.com/cyrilnkl)
 - [@Alinahas1311](https://www.github.com/alinahas1311)
