@@ -14,7 +14,7 @@ Project of S4 in Finite Automata, Efrei.
 |--------|-------------|------------|
 |Working| The Functionnality is available. | ![Working](https://i.ibb.co/3FntR1c/1.png) |
 |Started| Pending, Some anothers issues OR not checked that is it working or not.| ![Others](https://i.ibb.co/pQwqwcN/3.png)|
-|Not-Started| The function is not working Or need some modifications.|![Not-Working](https://i.ibb.co/wWtD8S6/2.png) |
+|Not-Started| The function is not working OR doesn't exist.|![Not-Working](https://i.ibb.co/wWtD8S6/2.png) |
 
 <br>AUTO-MATON<br>
 
