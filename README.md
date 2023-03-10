@@ -23,11 +23,11 @@ Project of S4 in Finite Automata, Efrei.
 |is_deterministic| COMING... | ![Working](https://i.ibb.co/3FntR1c/1.png) |
 |is_complete| COMING...| ![Working](https://i.ibb.co/3FntR1c/1.png) |
 |is_standard| COMING...| ![Working](https://i.ibb.co/3FntR1c/1.png) |
-|completion| COMING...| ![Working]|
+|completion| COMING...| ![Working](https://i.ibb.co/3FntR1c/1.png)|
 |determinization | COMING...| ![Others](https://i.ibb.co/pQwqwcN/3.png)|
-|stantadization | COMING...| ![Others](https://i.ibb.co/pQwqwcN/1.png)|
-|completion| COMING...| ![Others](https://i.ibb.co/pQwqwcN/1.png)|
-|display_matrix| COMING...| ![Others](https://i.ibb.co/pQwqwcN/1.png)|
+|stantadization | COMING...| ![Working](https://i.ibb.co/3FntR1c/1.png)|
+|completion| COMING...| ![Working](https://i.ibb.co/3FntR1c/1.png)|
+|display_matrix| COMING...| ![Working](https://i.ibb.co/3FntR1c/1.png)|
 
 <br>
 <hr>
