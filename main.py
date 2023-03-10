@@ -1,6 +1,7 @@
 from standard import is_standard, standardize
 from deterministic import is_deterministic, is_complete, completion
 from table_display import print_matrix
+from word_recognition import word_recognition
 
 # Fonction pour filtrer les données d'une ligne
 
@@ -39,11 +40,13 @@ if __name__ == '__main__':
     #print(alphabet, "\n", states, "\n", initial, "\n", final, "\n", list_transitions)
 
     print_matrix(alphabet, states, initial, final, list_transitions)
+
+    word_recognition(initial, final, list_transitions, "abbaaaaaaaaaaaaabbb")
+
     #print(is_standard(states, initial, final, list_transitions))
     #print(is_deterministic(states, initial, list_transitions))
 
-    print("NEW \n\n\n")
-    print_matrix(alphabet, states, initial, final, list_transitions)
+    #print_matrix(alphabet, states, initial, final, list_transitions)
 
     # print(is_standard(alphabet, states, initial, final, list_transitions))
 

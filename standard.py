@@ -46,7 +46,7 @@ def is_standard(states, initial, final, transitions):
 
 # to standardize an automaton
 def standardize(alphabet, states, initials, final, transitions):
-    if len(initials) > 1:
+    if len(initials) >= 1:
         new_initials = []
         for initial in initials:
             for transition in transitions:
