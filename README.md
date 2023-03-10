@@ -13,8 +13,8 @@ Project of S4 in Finite Automata, Efrei.
 | Status | Description | Color Code |
 |--------|-------------|------------|
 |Working| The Functionnality is available. | ![Working](https://i.ibb.co/3FntR1c/1.png) |
-|Not- Working| The function is not working Or need some modifications.|![Not-Working](https://i.ibb.co/wWtD8S6/2.png) |
 |Others| Pending, Some anothers issues OR not checked that is it working or not.| ![Others](https://i.ibb.co/pQwqwcN/3.png)|
+|Not- Working| The function is not working Or need some modifications.|![Not-Working](https://i.ibb.co/wWtD8S6/2.png) |
 
 <br>AUTO-MATON<br>
 
@@ -27,10 +27,9 @@ Project of S4 in Finite Automata, Efrei.
 |determinization | Construction of a complete deterministic automaton from a non-deterministic automaton FA.| ![Others](https://i.ibb.co/pQwqwcN/3.png)|
 |stantadization | Construction of standardize automaton from a non-standardize automaton.| ![Working](https://i.ibb.co/3FntR1c/1.png)|
 |display_matrix| Display the automaton.| ![Working](https://i.ibb.co/3FntR1c/1.png)|
-
-|TO DEFINE| calculating the equivalent minimal FA.| ![Others](https://i.ibb.co/pQwqwcN/3.png)|
-|TO DEFINE| Testing word recognition. | ![Others](https://i.ibb.co/pQwqwcN/3.png)|
-|TO DEFINE| Creating an automaton recognizing the complementary language. | ![Others](https://i.ibb.co/pQwqwcN/3.png)|
+|TO DEFINE| calculating the equivalent minimal FA.| ![Not-Working](https://i.ibb.co/wWtD8S6/2.png)|
+|TO DEFINE| Testing word recognition. | ![Not-Working](https://i.ibb.co/wWtD8S6/2.png)|
+|TO DEFINE| Creating an automaton recognizing the complementary language. | ![Not-Working](https://i.ibb.co/wWtD8S6/2.png)|
 
 <br>
 <hr>
