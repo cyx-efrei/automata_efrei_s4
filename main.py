@@ -16,7 +16,7 @@ def ouverture(url):
     with open(url, 'r') as f:
         lines = f.read().splitlines()
 
-        alphabet = filtrer_list(lines, 0, 4, ', ')
+        alphabet = filtrer_list(lines, 0, 4, ',')
 
         states = filtrer_list(lines, 1, 4, ',')
 
@@ -35,13 +35,14 @@ if __name__ == '__main__':
     print('BEGIN\n\n')
 
     alphabet, states, initial, final, list_transitions = ouverture(
-        "automata_test.txt")
+        "./test/automata_test3.txt")
 
     #print(alphabet, "\n", states, "\n", initial, "\n", final, "\n", list_transitions)
 
     print_matrix(alphabet, states, initial, final, list_transitions)
 
-    word_recognition(initial, final, list_transitions, "abbaaaaaaaaaaaaabbb")
+    word_recognition(initial, final, list_transitions,
+                     "babbc")
 
     #print(is_standard(states, initial, final, list_transitions))
     #print(is_deterministic(states, initial, list_transitions))
