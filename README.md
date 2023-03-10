@@ -28,7 +28,7 @@ Project of S4 in Finite Automata, Efrei.
 |stantadization | Construction of standardize automaton from a non-standardize automaton.| ![Working](https://i.ibb.co/3FntR1c/1.png)|
 |display_matrix| Display the automaton.| ![Working](https://i.ibb.co/3FntR1c/1.png)|
 |TO DEFINE| calculating the equivalent minimal FA.| ![Not-Working](https://i.ibb.co/wWtD8S6/2.png)|
-|TO DEFINE| Testing word recognition. | ![Not-Working](https://i.ibb.co/wWtD8S6/2.png)|
+|word_recognition| Testing word recognition. | ![Working](https://i.ibb.co/3FntR1c/1.png)|
 |TO DEFINE| Creating an automaton recognizing the complementary language. | ![Not-Working](https://i.ibb.co/wWtD8S6/2.png)|
 
 <br>
