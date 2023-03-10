@@ -16,7 +16,17 @@ Project of S4 in Finite Automata, Efrei.
 |Not- Working| Scripts are not working Or need some modifications.|![Not-Working](https://i.ibb.co/wWtD8S6/2.png) |
 |Others| Pending, Some anothers issues OR not checked that is it working or not.| ![Others](https://i.ibb.co/pQwqwcN/3.png)|
 
+<br><br>
 
+| Status | Description | Color Code |
+|--------|-------------|------------|
+|is_deterministic| COMING... | ![Working](https://i.ibb.co/3FntR1c/1.png) |
+|is_ complete| COMING...| ![Working](https://i.ibb.co/3FntR1c/1.png) |
+|completion| COMING...| ![Others](https://i.ibb.co/pQwqwcN/3.png)|
+|completion| COMING...| ![Others](https://i.ibb.co/pQwqwcN/3.png)|
+|completion| COMING...| ![Others](https://i.ibb.co/pQwqwcN/3.png)|
+
+<br>
 <hr>
 
 
