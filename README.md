@@ -16,7 +16,9 @@ Project of S4 in Finite Automata, Efrei.
 |Started| Pending, Some anothers issues OR not checked that is it working or not.| ![Others](https://i.ibb.co/pQwqwcN/3.png)|
 |Not-Started| The function is not working OR doesn't exist.|![Not-Working](https://i.ibb.co/wWtD8S6/2.png) |
 
-<br>AUTO-MATON<br>
+<br>
+## AUTO-MATON
+<br>
 
 | Functions | Description | Status |
 |--------|-------------|------------|
@@ -34,16 +36,16 @@ Project of S4 in Finite Automata, Efrei.
 <br>
 <hr>
 
-
+<br>
 ## Authors
 
 - [@Cyrilnkl](https://www.github.com/cyrilnkl)
 - [@Alinahas1311](https://www.github.com/alinahas1311)
 - [@nkrief4](https://www.github.com/nkrief4)
 - [@P4ND4P0W3R](https://www.github.com/P4ND4P0W3R)
-
-
-
+<br>
+<hr>
+<br>
 ## How to use
 
 Run in your terminal :
