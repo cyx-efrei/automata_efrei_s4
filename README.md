@@ -46,3 +46,12 @@ Run the program :
 
 What did you learn while building this project? What challenges did you face and how did you overcome them?
 
+
+
+
+| Status | Description | Color Code |
+|--------|-------------|------------|
+|Working| The Script is working. | ![Working](https://i.ibb.co/3FntR1c/1.png) |
+|Not- Working| Scripts are not working Or need some modifications.|![Not-Working](https://i.ibb.co/wWtD8S6/2.png) |
+|Others| Pending, Some anothers issues OR not checked that is it working or not.| ![Others](https://i.ibb.co/pQwqwcN/3.png)|
+
