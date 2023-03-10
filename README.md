@@ -21,10 +21,13 @@ Project of S4 in Finite Automata, Efrei.
 | Status | Description | Color Code |
 |--------|-------------|------------|
 |is_deterministic| COMING... | ![Working](https://i.ibb.co/3FntR1c/1.png) |
-|is_ complete| COMING...| ![Working](https://i.ibb.co/3FntR1c/1.png) |
-|completion| COMING...| ![Others](https://i.ibb.co/pQwqwcN/3.png)|
-|completion| COMING...| ![Others](https://i.ibb.co/pQwqwcN/3.png)|
-|completion| COMING...| ![Others](https://i.ibb.co/pQwqwcN/3.png)|
+|is_complete| COMING...| ![Working](https://i.ibb.co/3FntR1c/1.png) |
+|is_standard| COMING...| ![Working](https://i.ibb.co/3FntR1c/1.png) |
+|completion| COMING...| ![Others](https://i.ibb.co/pQwqwcN/1.png)|
+|determinization | COMING...| ![Others](https://i.ibb.co/pQwqwcN/3.png)|
+|stantadization | COMING...| ![Others](https://i.ibb.co/pQwqwcN/1.png)|
+|completion| COMING...| ![Others](https://i.ibb.co/pQwqwcN/1.png)|
+|display_matrix| COMING...| ![Others](https://i.ibb.co/pQwqwcN/1.png)|
 
 <br>
 <hr>
