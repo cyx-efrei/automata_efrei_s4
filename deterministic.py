@@ -30,7 +30,7 @@ def is_complete(alphabet, states, transitions):
                 # letter contient toutes les lettres qui ont une transition à partir du state
 
         list_differences = []
-        if len(letters) != 2:
+        if len(letters) != len(alphabet):
             for a in alphabet:
                 if a not in letters:
                     list_differences.append(a)

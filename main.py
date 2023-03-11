@@ -32,7 +32,7 @@ def ouverture(url):
 
 
 if __name__ == '__main__':
-    print('BEGIN\n\n')
+    print('BEGIN\n')
 
     alphabet, states, initial, final, list_transitions = ouverture(
         "./test/automata_test3.txt")
@@ -41,18 +41,34 @@ if __name__ == '__main__':
 
     print_matrix(alphabet, states, initial, final, list_transitions)
 
-    word_recognition(initial, final, list_transitions,
-                     "babbc")
+    # TEST STANDARSIZATION :
 
-    #print(is_standard(states, initial, final, list_transitions))
+    # print(is_standard(initial, list_transitions))
+
+    # standardize(alphabet, states, initial, final, list_transitions)
+
+    # END
+
+    # TEST COMPLETE :
+
+    # print(is_complete(alphabet, states, list_transitions))
+
+    # list_transitions = completion(alphabet, states, list_transitions)
+
+    # print_matrix(alphabet, states, initial, final, list_transitions)
+
+    # END
+
+    # TEST deterministic
     #print(is_deterministic(states, initial, list_transitions))
 
-    #print_matrix(alphabet, states, initial, final, list_transitions)
+    # END
 
-    # print(is_standard(alphabet, states, initial, final, list_transitions))
+    # TEST WORD RECOGNITION :
 
-    #complete(alphabet, states, initial, final, list_transitions)
-    #standardize(alphabet, states, initial, final, list_transitions)
+    print("Enter the word to recognize :\n ->", end="")
+    word = input()
+    word_recognition(initial, final, list_transitions, word)
 
 
 ''' ----------- MENU FOR COMPLETION
