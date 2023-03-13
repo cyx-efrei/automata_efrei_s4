@@ -2,6 +2,7 @@ from standard import is_standard, standardize
 from deterministic import is_deterministic, is_complete, completion
 from table_display import print_matrix
 from word_recognition import word_recognition
+from minimization import minimization
 
 # Fonction pour filtrer les données d'une ligne
 
@@ -41,7 +42,13 @@ if __name__ == '__main__':
 
     print_matrix(alphabet, states, initial, final, list_transitions)
 
-    # TEST STANDARSIZATION :
+    # -- TEST MINIMIZATION
+
+    minimization(alphabet, states, initial, final, list_transitions)
+
+    # END
+
+    # -- TEST STANDARSIZATION :
 
     # print(is_standard(initial, list_transitions))
 
@@ -49,7 +56,7 @@ if __name__ == '__main__':
 
     # END
 
-    # TEST COMPLETE :
+    # -- TEST COMPLETE :
 
     # print(is_complete(alphabet, states, list_transitions))
 
@@ -59,16 +66,18 @@ if __name__ == '__main__':
 
     # END
 
-    # TEST deterministic
+    # -- TEST deterministic
     #print(is_deterministic(states, initial, list_transitions))
 
     # END
 
-    # TEST WORD RECOGNITION :
+    # -- TEST WORD RECOGNITION :
 
-    print("Enter the word to recognize :\n ->", end="")
-    word = input()
-    word_recognition(initial, final, list_transitions, word)
+    # print("Enter the word to recognize :\n ->", end="")
+    # word = input()
+    # word_recognition(initial, final, list_transitions, word)
+
+    # END
 
 
 ''' ----------- MENU FOR COMPLETION
