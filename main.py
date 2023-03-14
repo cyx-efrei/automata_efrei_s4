@@ -32,7 +32,7 @@ def ouverture(url):
     return alphabet, states, initial_state, final_state, list_transitions
 
 def complement(alphabet, states, initial, final, transitions):
-    if is_complete(alphabet, states, transitions) and is_deterministic(states, initial, transitions) != True:
+    if (is_complete(alphabet, states, transitions) and is_deterministic(states, initial, transitions)) != True:
         print("One of these condition is not true")
         return False
     print("the automaton is complete deterministic !")
