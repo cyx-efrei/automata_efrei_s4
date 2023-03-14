@@ -13,6 +13,19 @@ def filtrer_list(list_name, num_line, first_char, separator):
 # Fonction pour ouvrir un fichier txt + lire + trier
 
 
+def complement(alphabet, states, initial, final, transitions):
+    if is_complete(alphabet, states, transitions) and is_deterministic(states, initial, transitions) != True:
+        print("One of these condition is not true")
+        return False
+    print("the automaton is complete deterministic !")
+    new_array = []
+    for s in states:
+        if s not in final:
+            new_array.append(s)
+    final = new_array
+    print_matrix(alphabet, states, initial, final, list_transitions)
+
+
 def ouverture(url):
     with open(url, 'r') as f:
         lines = f.read().splitlines()
@@ -36,23 +49,25 @@ if __name__ == '__main__':
     print('BEGIN\n')
 
     alphabet, states, initial, final, list_transitions = ouverture(
-        "./test/automata_test3.txt")
+        "./test/INT3-5-37.txt")
 
     #print(alphabet, "\n", states, "\n", initial, "\n", final, "\n", list_transitions)
 
     print_matrix(alphabet, states, initial, final, list_transitions)
 
+    #complement(alphabet, states, initial, final, list_transitions)
+
     # -- TEST MINIMIZATION
 
-    minimization(alphabet, states, initial, final, list_transitions)
+    #minimization(alphabet, states, initial, final, list_transitions)
 
     # END
 
     # -- TEST STANDARSIZATION :
 
-    # print(is_standard(initial, list_transitions))
+    print(is_standard(initial, list_transitions))
 
-    # standardize(alphabet, states, initial, final, list_transitions)
+    standardize(alphabet, states, initial, final, list_transitions)
 
     # END
 
