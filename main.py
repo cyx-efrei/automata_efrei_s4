@@ -1,4 +1,8 @@
+from standard import is_standard, standardize
+from deterministic import is_deterministic, is_complete, completion
 from table_display import print_matrix
+from word_recognition import word_recognition
+
 
 # Fonction pour filtrer les données d'une ligne
 
@@ -9,11 +13,26 @@ def filtrer_list(list_name, num_line, first_char, separator):
 # Fonction pour ouvrir un fichier txt + lire + trier
 
 
+def complement(alphabet, states, initial, final, transitions):
+    if is_complete(alphabet, states, transitions) != True:
+        print("It is not complete")
+        return False
+    if is_deterministic(states, initial, transitions) != True:
+        print("the automaton is not deterministic !")
+        return False
+    new_array = []
+    for s in states:
+        if s not in final:
+            new_array.append(s)
+    final = new_array
+    print_matrix(alphabet, states, initial, final, list_transitions)
+
+
 def ouverture(url):
     with open(url, 'r') as f:
         lines = f.read().splitlines()
 
-        alphabet = filtrer_list(lines, 0, 4, ', ')
+        alphabet = filtrer_list(lines, 0, 4, ',')
 
         states = filtrer_list(lines, 1, 4, ',')
 
@@ -27,76 +46,79 @@ def ouverture(url):
 
     return alphabet, states, initial_state, final_state, list_transitions
 
-<<<<<<< HEAD
-def is_deterministic(states, initial_state, accept_states, list_transition):
-
- # Vérification des états initiaux
-    if len(initial_state) != 1:
-        return False
-    if initial_state[0] not in states:
-        return False
-# Vérification des états d'acceptation
-    for i in accept_states:
-        if i not in states:
-=======
-
-def is_deterministic(alphabet, states, initial, final, transitions):
- # Vérification des états initiaux
-    if len(initial) != 1:
-        return False
-
-    '''   --------------------------------- INUTILE ???
-    if initial[0] not in states:
-        return False
-    '''
-    '''   --------------------------------- PAS CAPÉ ??
-    # Vérification des états d'acceptation
-    for accept_state in accept_states:
-        if accept_state not in states:
->>>>>>> 4f32613d24bd44ea370cbd71afd5ab21327af288
-            return False
-'''
-    # Vérifier que chaque transition a un seul symbole d'entrée
-    for state in states:
-        letter = set()
-        for transition in transitions:
-            if transition[0] == state:
-                actual_letter = transition[2]
-                if actual_letter in letter:
-                    print("3")
-                    return False
-                letter.add(actual_letter)
-
-    for state in states :
-        list_transition = []
-        for lettre in alphabet :
-            for transition in list_transition:
-                if lettre in transition[2] :
-                    return False
-                else:
-                    list_transition.append(transition[2])
-
-
-
-    #voir que chaque state envoie un fois et unique fois
-    """for i in list_transition:
-        if list_transition[i][2]== list_transition[i+1][2] and list_transition[i]== list_transition[i+1]:
-            return False"""
-
-
-# ENTRE FOR STATE ET FOR LATTER METTRE UNE CREATION DE TABLE
-
-
-    return True
-
 
 if __name__ == '__main__':
-    print('BEGIN\n\n')
+
+    file = "./test/INT3-5-20.txt"
+
+    print('=================== BEGIN =================== \n', file)
 
     alphabet, states, initial, final, list_transitions = ouverture(
-        "automata_test.txt")
+        file)
 
-    print(alphabet, states, initial, final, list_transitions)
+    #print(alphabet, "\n", states, "\n", initial, "\n", final, "\n", list_transitions)
+
     print_matrix(alphabet, states, initial, final, list_transitions)
 
-    print(is_deterministic(alphabet, states, initial, final, list_transitions))
+    #complement(alphabet, states, initial, final, list_transitions)
+
+    print("\n\n-- TEST MINIMIZATION --")
+
+    #minimization(alphabet, states, initial, final, list_transitions)
+
+    # END
+
+    print("\n\n-- TEST STANDARSIZATION : --")
+
+    if is_standard(initial, list_transitions):
+        print("is already standardize !")
+    else:
+        print("let's standardize")
+        standardize(alphabet, states, initial, final, list_transitions)
+
+    # END
+
+    print("\n\n-- TEST deterministic --")
+    print(is_deterministic(states, initial, list_transitions))
+
+    # END
+
+    print("\n\n-- TEST COMPLETE : --")
+
+    if is_complete(alphabet, states, list_transitions):
+        print("already complete")
+    else:
+        print("let's complete")
+
+        list_transitions, states = completion(
+            alphabet, states, list_transitions)
+
+        print_matrix(alphabet, states, initial, final, list_transitions)
+
+    # END
+
+    print("\n\n-- TEST WORD RECOGNITION : --")
+
+    word = "psp"
+    while word != "pp":
+        print("Enter the word to recognize :\n ->", end="")
+        word = input()
+        word_recognition(initial, final, list_transitions, word)
+
+    # END
+    print("\n\n-- TEST COMPLEMENT : --")
+
+    complement(alphabet, states, initial, final, list_transitions)
+
+
+''' ----------- MENU FOR COMPLETION
+    if (is_complete(alphabet, states, list_transitions)) == False:
+        r = "0"
+        print("\nDo you want us to make the completion ? (y/n)\n ->", end="")
+        r = input()
+        while (r != 'y' or r != 'n'):
+            print("\nPlease enter y for yes or n for no\n ->", end="")
+            r = input()
+        if r == "y":
+            list_transitions = completion(alphabet, states, list_transitions)
+'''
