@@ -1,3 +1,65 @@
+# Check if the automaton is complete
+def is_complete(automaton):
+    for state in automaton["states"]:
+        for symbol in automaton["alphabet"]:
+            if symbol not in automaton["transitions"][state]:
+                return False
+    return True
+
+
+# Check if the automaton is deterministic
+def is_deterministic(automaton):
+    transitions = automaton["transitions"]
+    for state, state_transitions in transitions.items():
+        if len(state_transitions.keys()) != len(set(state_transitions.values())):
+            return False
+    return True
+
+
+# Determinize and complete the automaton
+def determinization_and_completion(automaton):
+    # Determine the set of all states in the new automaton
+    all_states = set()
+    for state in automaton["states"]:
+        for symbol in automaton["alphabet"]:
+            all_states.add(tuple(sorted([state, automaton["transitions"][state][symbol]])))
+
+    # Create the new automaton
+    new_automaton = {
+        "alphabet": automaton["alphabet"],
+        "states": [],
+        "initials": [tuple(sorted(automaton["initials"]))],
+        "finals": [],
+        "transitions": {}
+    }
+    for state in all_states:
+        new_automaton["states"].append(state)
+        new_automaton["transitions"][state] = {}
+        for symbol in automaton["alphabet"]:
+            new_state = tuple(
+                sorted([automaton["transitions"][state[0]][symbol], automaton["transitions"][state[1]][symbol]]))
+            new_automaton["transitions"][state][symbol] = new_state
+        if state[0] in automaton["finals"] or state[1] in automaton["finals"]:
+            new_automaton["finals"].append(state)
+    return new_automaton
+
+
+# Complete the automaton
+def completion(automaton):
+    new_automaton = automaton.copy()
+    new_state = "Sink"
+    while new_state in new_automaton["states"]:
+        new_state += "'"
+    new_automaton["states"].append(new_state)
+    for state in new_automaton["states"]:
+        for symbol in new_automaton["alphabet"]:
+            if symbol not in new_automaton["transitions"][state]:
+                new_automaton["transitions"][state][symbol] = new_state
+    return new_automaton
+
+
+
+"""
 def is_deterministic(states, initial, transitions):
  # Vérification des états initiaux
     if len(initial) != 1:
@@ -72,3 +134,11 @@ def completion(alphabet, states, transitions):
                 transitions.append(state + "," + l_alphabet + ",P")
 
     return transitions
+
+# To Determinize an automaton
+def determinize(alphabet, states, initials, final, transitions):
+    if len(initials) > 1:
+        new_initials = []
+        for initial in initials :
+            for transitions in transitions :
+"""
