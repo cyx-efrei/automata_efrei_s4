@@ -14,10 +14,12 @@ def filtrer_list(list_name, num_line, first_char, separator):
 
 
 def complement(alphabet, states, initial, final, transitions):
-    if is_complete(alphabet, states, transitions) and is_deterministic(states, initial, transitions) != True:
-        print("One of these condition is not true")
+    if is_complete(alphabet, states, transitions) != True:
+        print("It is not complete")
         return False
-    print("the automaton is complete deterministic !")
+    if is_deterministic(states, initial, transitions) != True:
+        print("the automaton is not deterministic !")
+        return False
     new_array = []
     for s in states:
         if s not in final:
@@ -46,10 +48,13 @@ def ouverture(url):
 
 
 if __name__ == '__main__':
-    print('BEGIN\n')
+
+    file = "./test/INT3-5-39.txt"
+
+    print('BEGIN =================== \n', file)
 
     alphabet, states, initial, final, list_transitions = ouverture(
-        "./test/INT3-5-37.txt")
+        file)
 
     #print(alphabet, "\n", states, "\n", initial, "\n", final, "\n", list_transitions)
 
@@ -57,42 +62,53 @@ if __name__ == '__main__':
 
     #complement(alphabet, states, initial, final, list_transitions)
 
-    # -- TEST MINIMIZATION
+    print("\n\n-- TEST MINIMIZATION --")
 
     #minimization(alphabet, states, initial, final, list_transitions)
 
     # END
 
-    # -- TEST STANDARSIZATION :
+    print("\n\n-- TEST STANDARSIZATION : --")
 
-    print(is_standard(initial, list_transitions))
-
-    standardize(alphabet, states, initial, final, list_transitions)
-
-    # END
-
-    # -- TEST COMPLETE :
-
-    # print(is_complete(alphabet, states, list_transitions))
-
-    # list_transitions = completion(alphabet, states, list_transitions)
-
-    # print_matrix(alphabet, states, initial, final, list_transitions)
+    if is_standard(initial, list_transitions):
+        print("is already standardize !")
+    else:
+        print("let's standardize")
+        standardize(alphabet, states, initial, final, list_transitions)
 
     # END
 
-    # -- TEST deterministic
-    #print(is_deterministic(states, initial, list_transitions))
+    print("\n\n-- TEST deterministic --")
+    print(is_deterministic(states, initial, list_transitions))
 
     # END
 
-    # -- TEST WORD RECOGNITION :
+    print("\n\n-- TEST COMPLETE : --")
 
-    # print("Enter the word to recognize :\n ->", end="")
-    # word = input()
-    # word_recognition(initial, final, list_transitions, word)
+    if is_complete(alphabet, states, list_transitions):
+        print("already complete")
+    else:
+        print("let's complete")
+
+        list_transitions, states = completion(
+            alphabet, states, list_transitions)
+
+        print_matrix(alphabet, states, initial, final, list_transitions)
 
     # END
+
+    print("\n\n-- TEST WORD RECOGNITION : --")
+
+    word = "psp"
+    while word != "pp":
+        print("Enter the word to recognize :\n ->", end="")
+        word = input()
+        word_recognition(initial, final, list_transitions, word)
+
+    # END
+    print("\n\n-- TEST COMPLEMENT : --")
+
+    complement(alphabet, states, initial, final, list_transitions)
 
 
 ''' ----------- MENU FOR COMPLETION

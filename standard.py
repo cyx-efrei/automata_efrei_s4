@@ -5,6 +5,7 @@ def is_standard(initial, transitions):
 
     # Vérifier s'il y a un seul état initial
     if len(initial) != 1:
+        print("more than 1 entry")
         return False
 
     for transition in transitions:
@@ -25,9 +26,11 @@ def standardize(alphabet, states, initials, final, transitions):
         for initial in initials:
             for transition in transitions:
                 if transition[0] == initial:
-                    #print("i" + transition[1:])
+                    print("i" + transition[1:], transition)
                     if "i" + transition[1:] not in transitions:
                         transitions.append("i" + transition[1:])
+                    if (transition[-1] in final and "i" not in final):
+                        final.append("i")
     initials = "i"
     states.append("i")
     print_matrix(alphabet, states, initials, final, transitions)

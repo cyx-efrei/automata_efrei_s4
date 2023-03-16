@@ -68,7 +68,11 @@ def completion(alphabet, states, transitions):
         # for values in letters:
 
         for l_alphabet in alphabet:
+            if ("P," + l_alphabet + ",P") not in transitions:
+                transitions.append("P," + l_alphabet + ",P")
             if l_alphabet not in letters:
                 transitions.append(state + "," + l_alphabet + ",P")
 
-    return transitions
+    states.append("P")
+
+    return transitions, states
