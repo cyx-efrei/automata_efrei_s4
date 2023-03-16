@@ -2,7 +2,7 @@ from standard import is_standard, standardize
 from deterministic import is_deterministic, is_complete, completion
 from table_display import print_matrix
 from word_recognition import word_recognition
-
+#from minimization import minimization
 
 # Fonction pour filtrer les données d'une ligne
 
@@ -49,9 +49,9 @@ def ouverture(url):
 
 if __name__ == '__main__':
 
-    file = "./test/INT3-5-20.txt"
+    file = "./test/INT3-5-18.txt"
 
-    print('=================== BEGIN =================== \n', file)
+    print('BEGIN =================== \n', file)
 
     alphabet, states, initial, final, list_transitions = ouverture(
         file)
