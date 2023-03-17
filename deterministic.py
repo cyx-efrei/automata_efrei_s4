@@ -1,65 +1,5 @@
-# Check if the automaton is complete
-def is_complete(automaton):
-    for state in automaton["states"]:
-        for symbol in automaton["alphabet"]:
-            if symbol not in automaton["transitions"][state]:
-                return False
-    return True
+from table_display import *
 
-
-# Check if the automaton is deterministic
-def is_deterministic(automaton):
-    transitions = automaton["transitions"]
-    for state, state_transitions in transitions.items():
-        if len(state_transitions.keys()) != len(set(state_transitions.values())):
-            return False
-    return True
-
-
-# Determinize and complete the automaton
-def determinization_and_completion(automaton):
-    # Determine the set of all states in the new automaton
-    all_states = set()
-    for state in automaton["states"]:
-        for symbol in automaton["alphabet"]:
-            all_states.add(tuple(sorted([state, automaton["transitions"][state][symbol]])))
-
-    # Create the new automaton
-    new_automaton = {
-        "alphabet": automaton["alphabet"],
-        "states": [],
-        "initials": [tuple(sorted(automaton["initials"]))],
-        "finals": [],
-        "transitions": {}
-    }
-    for state in all_states:
-        new_automaton["states"].append(state)
-        new_automaton["transitions"][state] = {}
-        for symbol in automaton["alphabet"]:
-            new_state = tuple(
-                sorted([automaton["transitions"][state[0]][symbol], automaton["transitions"][state[1]][symbol]]))
-            new_automaton["transitions"][state][symbol] = new_state
-        if state[0] in automaton["finals"] or state[1] in automaton["finals"]:
-            new_automaton["finals"].append(state)
-    return new_automaton
-
-
-# Complete the automaton
-def completion(automaton):
-    new_automaton = automaton.copy()
-    new_state = "Sink"
-    while new_state in new_automaton["states"]:
-        new_state += "'"
-    new_automaton["states"].append(new_state)
-    for state in new_automaton["states"]:
-        for symbol in new_automaton["alphabet"]:
-            if symbol not in new_automaton["transitions"][state]:
-                new_automaton["transitions"][state][symbol] = new_state
-    return new_automaton
-
-
-
-"""
 def is_deterministic(states, initial, transitions):
  # Vérification des états initiaux
     if len(initial) != 1:
@@ -77,7 +17,6 @@ def is_deterministic(states, initial, transitions):
                 letter.add(actual_letter)
 
     return True
-
 
 # TO COMPLETE AN AUTOMATON
 def is_complete(alphabet, states, transitions):
@@ -135,10 +74,67 @@ def completion(alphabet, states, transitions):
 
     return transitions
 
-# To Determinize an automaton
-def determinize(alphabet, states, initials, final, transitions):
-    if len(initials) > 1:
-        new_initials = []
-        for initial in initials :
-            for transitions in transitions :
-"""
+def deter_automaton():
+    # Read input file
+    with open("automata_test.txt", 'r') as file:
+        lines = file.readlines()
+
+    # Parse input file
+    alphabet = lines[0].strip().split(', ')
+    states = lines[1].strip().split(', ')
+    initial_states = lines[2].strip().split(', ')
+    final_states = lines[3].strip().split(', ')
+    transitions = {}
+    for line in lines[4:]:
+        q1, symbol, q2 = line.strip().split(',')
+        if (q1, symbol) not in transitions:
+            transitions[(q1, symbol)] = [q2]
+        else:
+            transitions[(q1, symbol)].append(q2)
+
+    # Initialize variables for determinization
+    new_states = []
+    new_transitions = {}
+    new_final_states = set()
+    unmarked_states = []
+    marked_states = {}
+
+    # Create new initial state as sorted list of original initial states
+    new_initial_state = ','.join(sorted(initial_states))
+    new_states.append(new_initial_state)
+    unmarked_states.append(new_initial_state)
+
+    # Loop until all states are marked
+    while unmarked_states:
+        q = unmarked_states.pop()
+        marked_states[q] = True
+
+        # Compute transitions for new state
+        for symbol in alphabet:
+            next_states = set()
+            for q_i in q.split(','):
+                if (q_i, symbol) in transitions:
+                    next_states = next_states.union(transitions[(q_i, symbol)])
+            if next_states:
+                next_state = ','.join(sorted(list(next_states)))
+                if next_state not in new_states:
+                    new_states.append(next_state)
+                    unmarked_states.append(next_state)
+                if (q, symbol) not in new_transitions:
+                    new_transitions[(q, symbol)] = [next_state]
+                else:
+                    new_transitions[(q, symbol)].append(next_state)
+
+    # Compute new final states
+    for q in new_states:
+        for q_i in q.split(','):
+            if q_i in final_states:
+                new_final_states.add(q)
+                break
+
+    n_transitions = []
+    for q1, symbol in new_transitions:
+        q2 = new_transitions[(q1, symbol)][0]
+        n_transitions.append('{},{},{}'.format(q1,symbol,q2))
+
+    print_matrix(alphabet, new_states, new_initial_state, new_final_states, n_transitions)

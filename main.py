@@ -1,5 +1,5 @@
 from standard import is_standard, standardize
-from deterministic import is_deterministic, is_complete, determinization_and_completion, completion
+from deterministic import deter_automaton
 from table_display import print_matrix
 
 # Fonction pour filtrer les données d'une ligne
@@ -50,24 +50,8 @@ if __name__ == '__main__':
     #complete(alphabet, states, initial, final, list_transitions)
     #standardize(alphabet, states, initial, final, list_transitions)
 
+    deter_automaton()
 
-    # Adding all the information about the automaton in a dictionary for easy use
-    automaton = {
-        "alphabet": alphabet,
-        "states": states,
-        "initials": initial,
-        "finals": final,
-        "transitions": list_transitions
-    }
-
-    if is_deterministic(automaton) and is_complete(automaton):
-        CDFA = automaton # Complete Deterministic Finite Automaton
-    else:
-        NFA = automaton # Non Finite Automaton
-        DFA = determinization_and_completion(NFA) # Definite Finite Automaton
-        CDFA = DFA if is_complete(DFA) else completion(DFA) # Complete Deterministic Finite Automaton
-
-    print_matrix(CDFA)
 
 ''' ----------- MENU FOR COMPLETION
     if (is_complete(alphabet, states, list_transitions)) == False:
