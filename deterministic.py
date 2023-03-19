@@ -1,4 +1,4 @@
-from table_display import print_matrix
+# from table_display import print_matrix
 
 
 def is_deterministic(states, initial, transitions):
@@ -81,68 +81,66 @@ def completion(alphabet, states, transitions):
     return transitions, states
 
 
-def deter_automaton(alphabet, states, initial_states, final_states, transitions):
-    # Read input file
-    with open("automata_test.txt", 'r') as file:
-        lines = file.readlines()
+# def deter_automaton(alphabet, states, initial, final, transitions):
 
-    # Parse input file
-    alphabet = lines[0].strip().split(', ')
-    states = lines[1].strip().split(', ')
-    initial_states = lines[2].strip().split(', ')
-    final_states = lines[3].strip().split(', ')
-    transitions = {}
-    for line in lines[4:]:
-        q1, symbol, q2 = line.strip().split(',')
-        if (q1, symbol) not in transitions:
-            transitions[(q1, symbol)] = [q2]
-        else:
-            transitions[(q1, symbol)].append(q2)
+def determinisation(alphabet, states, initial, final, transitions):
 
-    # Initialize variables for determinization
-    new_states = []
-    new_transitions = {}
-    new_final_states = set()
-    unmarked_states = []
-    marked_states = {}
+    # ON PREND TOUTES LES TRANSITIONS DU TEXTE
+    # with open("automate.txt", "r") as fichier:
+    #     lignes = fichier.read().splitlines()
 
-    # Create new initial state as sorted list of original initial states
-    new_initial_state = ','.join(sorted(initial_states))
-    new_states.append(new_initial_state)
-    unmarked_states.append(new_initial_state)
+    #     # ON RECUPERE LES E INITIAUX
+    #     etats_initiaux = (lignes[2][2:].split(" "))
 
-    # Loop until all states are marked
-    while unmarked_states:
-        q = unmarked_states.pop()
-        marked_states[q] = True
+    #     lettres = []
+    #     list_transitions = []
+    #     for ligne in lignes[5:]:
+    #         list_transitions.append(ligne)
+    #         if ligne[1] not in lettres:
+    #             lettres.append(ligne[1])
 
-        # Compute transitions for new state
-        for symbol in alphabet:
-            next_states = set()
-            for q_i in q.split(','):
-                if (q_i, symbol) in transitions:
-                    next_states = next_states.union(transitions[(q_i, symbol)])
-            if next_states:
-                next_state = ','.join(sorted(list(next_states)))
-                if next_state not in new_states:
-                    new_states.append(next_state)
-                    unmarked_states.append(next_state)
-                if (q, symbol) not in new_transitions:
-                    new_transitions[(q, symbol)] = [next_state]
-                else:
-                    new_transitions[(q, symbol)].append(next_state)
+    # print("Transitions : ", list_transitions)
+    # print("Lettres : ", lettres)
+    # print("Etats INIT : ", etats_initiaux)
 
-    # Compute new final states
-    for q in new_states:
-        for q_i in q.split(','):
-            if q_i in final_states:
-                new_final_states.add(q)
-                break
+    etats_initiaux_string = ""
+    for etat in initial:
+        etats_initiaux_string += str(etat)
 
-    n_transitions = []
-    for q1, symbol in new_transitions:
-        q2 = new_transitions[(q1, symbol)][0]
-        n_transitions.append('{},{},{}'.format(q1, symbol, q2))
+    print(etats_initiaux_string)
 
-    print_matrix(alphabet, new_states, new_initial_state,
-                 new_final_states, n_transitions)
+    new_transitions = []
+    # Ici on garde les noms des nvx transitions pour ne pas se répéter
+    new_transitions_base = []
+
+    for lettre in alphabet:
+        resultat_transition = ""
+        for transition in transitions:
+            if lettre == transition[2] and transition[0] in initial:
+                if transition[4] not in resultat_transition:
+                    resultat_transition += transition[4]
+                    print("rT", resultat_transition)
+        # print(resultat_transition)
+        new_transitions_base.append(resultat_transition)
+        new_transitions.append(etats_initiaux_string + "," +
+                               lettre + "," + resultat_transition)
+
+    print("ff", new_transitions)
+
+    # on balaye les nouveaux states ( 013 puis 02 )
+    for new_states in new_transitions_base:
+        for lettre in alphabet:
+            resultat_transition = ""               # on balaye les lettres
+            for state in new_states:
+                for transition in transitions:
+                    if lettre == transition[2] and transition[0] == state:
+                        if transition[4] not in resultat_transition:
+                            resultat_transition += transition[4]
+            print("test", resultat_transition)
+            if resultat_transition not in new_transitions_base:
+                new_transitions_base.append(resultat_transition)
+
+            new_transitions.append(
+                new_states + "," + lettre + "," + resultat_transition)
+
+    print(new_transitions)      # RESULTAT DES NOUVELLES TRANSITIONS

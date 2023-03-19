@@ -1,5 +1,5 @@
 from standard import is_standard, standardize
-from deterministic import is_deterministic, is_complete, completion, deter_automaton
+from deterministic import is_deterministic, is_complete, completion, determinisation
 from table_display import print_matrix
 from word_recognition import word_recognition
 from minimization import minimization
@@ -73,57 +73,64 @@ def afficher_menu():
 
 if __name__ == '__main__':
 
-    print("\n\n\n  ________  ________   ___   __  ____________              __  ______  __________  _   __")
-    print(" /_  __/ / / / ____/  /   | / / / /_  __/ __ \            /  |/  /   |/_  __/ __ \/ | / /")
-    print("  / / / /_/ / __/    / /| |/ / / / / / / / / /  ______   / /|_/ / /| | / / / / / /  |/ / ")
-    print(" / / / __  / /___   / ___ / /_/ / / / / /_/ /  /_____/  / /  / / ___ |/ / / /_/ / /|  /  ")
-    print("/_/ /_/ /_/_____/  /_/  |_\____/ /_/  \____/           /_/  /_/_/  |_/_/  \____/_/ |_/   \n\n")
+    alphabet, states, initial, final, list_transitions = ouverture(
+        "./test/INT3-5-38.txt")
 
-    file = choose_file()
+    determinisation(alphabet, states, initial, final, list_transitions)
 
-    choice = 0
-    choice_list = ["1", "2", "3", "4"]
+    # deter_automaton(alphabet, states, initial, final, list_transitions)
 
-    while choice != '4':
-        afficher_menu()
-        choice = input("Choice between 1 , 2 , 3 or 4: \n -> ")
-        while choice not in choice_list:
-            choice = input("Please redo: \n -> ")
+    # print("\n\n\n  ________  ________   ___   __  ____________              __  ______  __________  _   __")
+    # print(" /_  __/ / / / ____/  /   | / / / /_  __/ __ \            /  |/  /   |/_  __/ __ \/ | / /")
+    # print("  / / / /_/ / __/    / /| |/ / / / / / / / / /  ______   / /|_/ / /| | / / / / / /  |/ / ")
+    # print(" / / / __  / /___   / ___ / /_/ / / / / /_/ /  /_____/  / /  / / ___ |/ / / /_/ / /|  /  ")
+    # print("/_/ /_/ /_/_____/  /_/  |_\____/ /_/  \____/           /_/  /_/_/  |_/_/  \____/_/ |_/   \n\n")
 
-        alphabet, states, initial, final, list_transitions = ouverture(file)
+    # file = choose_file()
 
-        if choice == "1":
-            print_matrix(alphabet, states, initial, final, list_transitions)
+    # choice = 0
+    # choice_list = ["1", "2", "3", "4"]
 
-        elif choice == "2":
-            print_matrix(alphabet, states, initial, final, list_transitions)
-            print("\n\n-- TEST deterministic --")
-            if is_deterministic(states, initial, list_transitions):
-                print("It's deterministic ")
-                print("Let's see if it's deterministic complete ")
-                if is_complete(alphabet, states, list_transitions):
-                    print("The automata is already deterministic complete")
-                else:
-                    print("It is no complete , so let's do it")
+    # while choice != '4':
+    #     afficher_menu()
+    #     choice = input("Choice between 1 , 2 , 3 or 4: \n -> ")
+    #     while choice not in choice_list:
+    #         choice = input("Please redo: \n -> ")
 
-                    list_transitions, states = completion(
-                        alphabet, states, list_transitions)
+    #     alphabet, states, initial, final, list_transitions = ouverture(file)
 
-                    print_matrix(alphabet, states, initial,
-                                 final, list_transitions)
-            else:
-                deter_automaton(alphabet, states, initial,
-                                final, list_transitions)
+    #     if choice == "1":
+    #         print_matrix(alphabet, states, initial, final, list_transitions)
 
-        elif choice == "3":
-            print("\n\n-- TEST STANDARSIZATION : --")
-            if is_standard(initial, list_transitions):
-                print("is already standardize !\n\n\n")
-            else:
-                print("let's standardize")
-                standardize(alphabet, states, initial, final, list_transitions)
+    #     elif choice == "2":
+    #         print_matrix(alphabet, states, initial, final, list_transitions)
+    #         print("\n\n-- TEST deterministic --")
+    #         if is_deterministic(states, initial, list_transitions):
+    #             print("It's deterministic ")
+    #             print("Let's see if it's deterministic complete ")
+    #             if is_complete(alphabet, states, list_transitions):
+    #                 print("The automata is already deterministic complete")
+    #             else:
+    #                 print("It is no complete , so let's do it")
 
-    print("\n\nbyeee")
+    #                 list_transitions, states = completion(
+    #                     alphabet, states, list_transitions)
+
+    #                 print_matrix(alphabet, states, initial,
+    #                              final, list_transitions)
+    #         else:
+    #             deter_automaton(alphabet, states, initial,
+    #                             final, list_transitions)
+
+    #     elif choice == "3":
+    #         print("\n\n-- TEST STANDARSIZATION : --")
+    #         if is_standard(initial, list_transitions):
+    #             print("is already standardize !\n\n\n")
+    #         else:
+    #             print("let's standardize")
+    #             standardize(alphabet, states, initial, final, list_transitions)
+
+    # print("\n\nbyeee")
 
     # MENU CYRIL
 
@@ -142,7 +149,7 @@ if __name__ == '__main__':
 
     # print("\n\n-- TEST MINIMIZATION --")
 
-    # #minimization(alphabet, states, initial, final, list_transitions)
+    # minimization(alphabet, states, initial, final, list_transitions)
 
     # # END
 
