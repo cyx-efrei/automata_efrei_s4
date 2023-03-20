@@ -43,7 +43,6 @@ def word_recognition(initial, final, transitions, word):
 
         # TO CHECK IF THE LAST LETTER OF THE WORD IS A TERMINAL
         if i == len(word)-1:
-            #print("dernier state : ", order_states[-1])
             if order_states[-1] in final:
                 print("\nThe word", word, "is succefully recognize")
             else:

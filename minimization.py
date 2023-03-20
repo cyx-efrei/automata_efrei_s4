@@ -1,5 +1,3 @@
-
-
 def minimization(alphabet, states, initial, final, transitions):
     final_transitions = []
     Term_letter = {}
@@ -26,7 +24,6 @@ def minimization(alphabet, states, initial, final, transitions):
                         part.append("NT")
                     else:
                         part.append("T")
-            # print("part : ", letter, part)
             NTerm_letter[letter] = part
 
     if len(T) == 1:
@@ -38,41 +35,20 @@ def minimization(alphabet, states, initial, final, transitions):
             for transition in transitions:
                 if transition[0] == letter:
                     if transition[-1] in NT:
-                        print("Nt")
                         part.append("NT")
                     else:
-                        print("TTt")
                         part.append("T")
-            # print("part : ", letter, part)
             Term_letter[letter] = part
 
-    print("NT ::", NTerm_letter)
-    print("T :::", Term_letter)
-    print("FfT :::", final_transitions)
-
-    # TO PUT EVERYTHING IN THE SAME DICTIONNARY TO PASS IT TO THE RECURSIVE FUNCTION
-
-    # recursive_prep = []
-    # recursive_prep.append(NTerm_letter)
-    # recursive_prep.append(Term_letter)
+    # TO PUT EVERYTHING IN THE SAME DICTIONNARY TO PASS IT TO
 
     recursive_prep = {}
     recursive_prep["NT"] = NTerm_letter
     recursive_prep["T"] = Term_letter
 
-    print("there : ", recursive_prep)
-
     end_transition = recursive_minimize_v2(recursive_prep)
     for trans in final_transitions:
         end_transition.append(trans)
-    print(end_transition)
-
-    # print(found_item("5", recursive_prep))
-
-    # recursive_end = []
-    # recursive_end = recursive_minimize(recursive_prep)
-
-    # # print("recursive_end : ", recursive_end)
 
 
 def recursive_minimize_v2(Dict):

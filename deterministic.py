@@ -83,8 +83,6 @@ def completion(alphabet, states, transitions):
     return transitions, states
 
 
-# def deter_automaton(alphabet, states, initial, final, transitions):
-
 def determinisation(alphabet, states, initial, final, transitions):
 
     etats_initiaux_string = ""
