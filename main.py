@@ -22,12 +22,8 @@ def filtrer_list(list_name, num_line, first_char, separator):
 
 
 def complement(alphabet, states, initial, final, transitions):
-    if is_complete(alphabet, states, transitions) != True:
-        print("It is not complete")
-        return False
-    if is_deterministic(states, initial, transitions) != True:
-        print("the automaton is not deterministic !")
-        return False
+
+
     new_array = []
     for s in states:
         if s not in final:
@@ -77,7 +73,8 @@ if __name__ == '__main__':
     print(" /_  __/ / / / ____/  /   | / / / /_  __/ __ \            /  |/  /   |/_  __/ __ \/ | / /")
     print("  / / / /_/ / __/    / /| |/ / / / / / / / / /  ______   / /|_/ / /| | / / / / / /  |/ / ")
     print(" / / / __  / /___   / ___ / /_/ / / / / /_/ /  /_____/  / /  / / ___ |/ / / /_/ / /|  /  ")
-    print("/_/ /_/ /_/_____/  /_/  |_\____/ /_/  \____/           /_/  /_/_/  |_/_/  \____/_/ |_/   \n\n")
+    print("/_/ /_/ /_/_____/  /_/  |_\____/ /_/  \____/           /_/  /_/_/  |_/_/  \____/_/ |_/   \n")
+    print("By Cyril Nakha, Ali Nahas , Nathan Krief , Paul Hu\n\n\n\n")
 
     file = choose_file()
 
@@ -99,21 +96,43 @@ if __name__ == '__main__':
             print_matrix(alphabet, states, initial, final, list_transitions)
             print("\n\n-- TEST deterministic --")
             if is_deterministic(states, initial, list_transitions):
-                print("It's deterministic ")
-                print("Let's see if it's deterministic complete ")
+                print("It's deterministic\n")
+                print("Let's see if it's deterministic complete\n")
                 if is_complete(alphabet, states, list_transitions):
-                    print("The automata is already deterministic complete")
+                    print("The automata is already deterministic complete\n")
+                    input("\nNext step : Complementary. \nClick on anything to continue …\n")
+                    complement(alphabet, states, initial, final, list_transitions)
+
                 else:
-                    print("It is no complete , so let's do it")
+                    print("It is no complete , so let's do it\n")
 
-                    list_transitions, states = completion(
-                        alphabet, states, list_transitions)
+                    list_transitions, states = completion(alphabet, states, list_transitions)
+                    print_matrix(alphabet, states, initial,final, list_transitions)
+                    input("\nNext step : Complementary. \nClick on anything to continue …\n")
+                    complement(alphabet, states, initial, final, list_transitions)
 
-                    print_matrix(alphabet, states, initial,
-                                 final, list_transitions)
             else:
-                deter_automaton(alphabet, states, initial,
-                                final, list_transitions)
+                print("It's not deterministic \nlet's determinize it\n")
+
+                local_transition, local_states, local_initial = determinisation(alphabet, states, initial,
+                                                                                final, list_transitions)
+
+                print_matrix(alphabet, local_states, local_initial,
+                             final, local_transition)
+                input("\nNext step : Completion. \nClick on anything to continue …\n")
+                if is_complete(alphabet, local_states, local_transition):
+                    print("The automata is already deterministic complete\n")
+                    input("\nNext step : Complementary. \nClick on anything to continue …\n")
+                    complement(alphabet, states, initial, final, list_transitions)
+
+                else:
+                    print("It is no complete , so let's do it\n")
+
+                    list_transitions, local_states = completion(alphabet, local_states, local_transition)
+                    print_matrix(alphabet, local_states, initial,final, local_transition)
+                    input("\nNext step : Complementary. \nClick on anything to continue …\n")
+                    complement(alphabet, states, initial, final, list_transitions)
+
 
         elif choice == "3":
             print("\n\n-- TEST STANDARSIZATION : --")
