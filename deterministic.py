@@ -91,8 +91,6 @@ def determinisation(alphabet, states, initial, final, transitions):
     for etat in initial:
         etats_initiaux_string += str(etat)
 
-    # print(etats_initiaux_string)
-
     new_transitions = []
     # Ici on garde les noms des nvx transitions pour ne pas se répéter
     new_transitions_base = []
@@ -103,8 +101,6 @@ def determinisation(alphabet, states, initial, final, transitions):
             if lettre == transition[2] and transition[0] in initial:
                 if transition[4] not in resultat_transition:
                     resultat_transition += transition[4]
-                    #print("rT", resultat_transition)
-        # print(resultat_transition)
         if resultat_transition != "":
             new_transitions_base.append(resultat_transition)
             new_transitions.append(etats_initiaux_string + "," +
@@ -119,12 +115,9 @@ def determinisation(alphabet, states, initial, final, transitions):
                     if lettre == transition[2] and transition[0] == state:
                         if transition[4] not in resultat_transition:
                             resultat_transition += transition[4]
-            #print("test", resultat_transition)
             if resultat_transition not in new_transitions_base and resultat_transition != "":
-                #print("bbb", resultat_transition)
                 new_transitions_base.append(resultat_transition)
 
-            #print("on ajoute : ", new_states + "," +lettre + "," + resultat_transition, resultat_transition == "")
             if resultat_transition != "":
                 new_transitions.append(
                     new_states + "," + lettre + "," + resultat_transition)
@@ -135,7 +128,19 @@ def determinisation(alphabet, states, initial, final, transitions):
                 if new_transition[0] not in new_states_off:
                     new_states_off.append(new_transition[0])
 
-    #print("init : ", new_initial)
-
     # RESULTAT DES NOUVELLES TRANSITIONS
-    return (new_transitions, new_states_off, new_states_off[0])
+    print(new_states_off[0])
+    new_finals = []
+    for final_state in final:
+        for states in new_states_off:
+            print(final, states)
+            for j in states:
+                print("comparison", j, final)
+                if j in final and states not in new_finals:
+                    print("ajoute", states)
+                    new_finals.append(states)
+
+    print("lets", new_finals)
+
+    # le premier state est celui qui sera inital
+    return (new_transitions, new_states_off, new_states_off[0], new_finals)
