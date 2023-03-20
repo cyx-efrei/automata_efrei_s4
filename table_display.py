@@ -47,7 +47,6 @@ def print_matrix(alphabet, states, initial, final, transitions):
             # WE WILL LOOK FOR EACH TRANSITIONS FOR EACH STATES
             for transition in transitions:
                 decomposed_transition = transition.split(",")
-                #print("from", transition.strip(","), "to : ", decomposed_transition)
                 if decomposed_transition[0] == i and decomposed_transition[1] == letter:
                     transition_string += decomposed_transition[2] + ","
 

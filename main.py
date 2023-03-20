@@ -4,10 +4,6 @@ from table_display import print_matrix
 from word_recognition import word_recognition
 from minimization import minimization
 
-import time
-
-# def pour le time sleep
-
 
 def sleep():
     time.sleep(0.2)
@@ -22,7 +18,6 @@ def filtrer_list(list_name, num_line, first_char, separator):
 
 
 def complement(alphabet, states, initial, final, transitions):
-
 
     new_array = []
     for s in states:
@@ -100,16 +95,22 @@ if __name__ == '__main__':
                 print("Let's see if it's deterministic complete\n")
                 if is_complete(alphabet, states, list_transitions):
                     print("The automata is already deterministic complete\n")
-                    input("\nNext step : Complementary. \nClick on anything to continue …\n")
-                    complement(alphabet, states, initial, final, list_transitions)
+                    input(
+                        "\nNext step : Complementary. \nClick on anything to continue …\n")
+                    complement(alphabet, states, initial,
+                               final, list_transitions)
 
                 else:
                     print("It is no complete , so let's do it\n")
 
-                    list_transitions, states = completion(alphabet, states, list_transitions)
-                    print_matrix(alphabet, states, initial,final, list_transitions)
-                    input("\nNext step : Complementary. \nClick on anything to continue …\n")
-                    complement(alphabet, states, initial, final, list_transitions)
+                    list_transitions, states = completion(
+                        alphabet, states, list_transitions)
+                    print_matrix(alphabet, states, initial,
+                                 final, list_transitions)
+                    input(
+                        "\nNext step : Complementary. \nClick on anything to continue …\n")
+                    complement(alphabet, states, initial,
+                               final, list_transitions)
 
             else:
                 print("It's not deterministic \nlet's determinize it\n")
@@ -122,17 +123,22 @@ if __name__ == '__main__':
                 input("\nNext step : Completion. \nClick on anything to continue …\n")
                 if is_complete(alphabet, local_states, local_transition):
                     print("The automata is already deterministic complete\n")
-                    input("\nNext step : Complementary. \nClick on anything to continue …\n")
-                    complement(alphabet, states, initial, final, list_transitions)
+                    input(
+                        "\nNext step : Complementary. \nClick on anything to continue …\n")
+                    complement(alphabet, states, initial,
+                               final, list_transitions)
 
                 else:
                     print("It is no complete , so let's do it\n")
 
-                    list_transitions, local_states = completion(alphabet, local_states, local_transition)
-                    print_matrix(alphabet, local_states, initial,final, local_transition)
-                    input("\nNext step : Complementary. \nClick on anything to continue …\n")
-                    complement(alphabet, states, initial, final, list_transitions)
-
+                    list_transitions, local_states = completion(
+                        alphabet, local_states, local_transition)
+                    print_matrix(alphabet, local_states, initial,
+                                 final, local_transition)
+                    input(
+                        "\nNext step : Complementary. \nClick on anything to continue …\n")
+                    complement(alphabet, states, initial,
+                               final, list_transitions)
 
         elif choice == "3":
             print("\n\n-- TEST STANDARSIZATION : --")
@@ -143,79 +149,3 @@ if __name__ == '__main__':
                 standardize(alphabet, states, initial, final, list_transitions)
 
     print("\n\nbyeee")
-
-    # MENU CYRIL
-
-    # file = "./test/INT3-5-39.txt"
-
-    # print('BEGIN =================== \n', file)
-
-    # alphabet, states, initial, final, list_transitions = ouverture(
-    #     file)
-
-    # #print(alphabet, "\n", states, "\n", initial, "\n", final, "\n", list_transitions)
-
-    # print_matrix(alphabet, states, initial, final, list_transitions)
-
-    # #complement(alphabet, states, initial, final, list_transitions)
-
-    # print("\n\n-- TEST MINIMIZATION --")
-
-    # minimization(alphabet, states, initial, final, list_transitions)
-
-    # # END
-
-    # print("\n\n-- TEST STANDARSIZATION : --")
-
-    # if is_standard(initial, list_transitions):
-    #     print("is already standardize !")
-    # else:
-    #     print("let's standardize")
-    #     standardize(alphabet, states, initial, final, list_transitions)
-
-    # # END
-
-    # print("\n\n-- TEST deterministic --")
-    # print(is_deterministic(states, initial, list_transitions))
-
-    # # END
-
-    # print("\n\n-- TEST COMPLETE : --")
-
-    # if is_complete(alphabet, states, list_transitions):
-    #     print("already complete")
-    # else:
-    #     print("let's complete")
-
-    #     list_transitions, states = completion(
-    #         alphabet, states, list_transitions)
-
-    #     print_matrix(alphabet, states, initial, final, list_transitions)
-
-    # # END
-
-    # print("\n\n-- TEST WORD RECOGNITION : --")
-
-    # word = "psp"
-    # while word != "pp":
-    #     print("Enter the word to recognize :\n ->", end="")
-    #     word = input()
-    #     word_recognition(initial, final, list_transitions, word)
-
-    # # END
-    # print("\n\n-- TEST COMPLEMENT : --")
-
-    # complement(alphabet, states, initial, final, list_transitions)
-
-
-''' ----------- MENU FOR COMPLETION
-    if (is_complete(alphabet, states, list_transitions)) == False:
-        r = "0"
-        print("\nDo you want us to make the completion ? (y/n)\n ->", end="")
-        r = input()
-        while (r != 'y' or r != 'n'):
-            print("\nPlease enter y for yes or n for no\n ->", end="")
-            r = input()
-        if r == "y":
-            list_transitions = completion(alphabet, states, list_transitions)
-'''

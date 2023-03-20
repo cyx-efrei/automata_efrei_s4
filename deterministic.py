@@ -83,15 +83,11 @@ def completion(alphabet, states, transitions):
     return transitions, states
 
 
-# def deter_automaton(alphabet, states, initial, final, transitions):
-
 def determinisation(alphabet, states, initial, final, transitions):
 
     etats_initiaux_string = ""
     for etat in initial:
         etats_initiaux_string += str(etat)
-
-    # print(etats_initiaux_string)
 
     new_transitions = []
     # Ici on garde les noms des nvx transitions pour ne pas se répéter
@@ -103,8 +99,6 @@ def determinisation(alphabet, states, initial, final, transitions):
             if lettre == transition[2] and transition[0] in initial:
                 if transition[4] not in resultat_transition:
                     resultat_transition += transition[4]
-                    #print("rT", resultat_transition)
-        # print(resultat_transition)
         if resultat_transition != "":
             new_transitions_base.append(resultat_transition)
             new_transitions.append(etats_initiaux_string + "," +
@@ -119,12 +113,9 @@ def determinisation(alphabet, states, initial, final, transitions):
                     if lettre == transition[2] and transition[0] == state:
                         if transition[4] not in resultat_transition:
                             resultat_transition += transition[4]
-            #print("test", resultat_transition)
             if resultat_transition not in new_transitions_base and resultat_transition != "":
-                #print("bbb", resultat_transition)
                 new_transitions_base.append(resultat_transition)
 
-            #print("on ajoute : ", new_states + "," +lettre + "," + resultat_transition, resultat_transition == "")
             if resultat_transition != "":
                 new_transitions.append(
                     new_states + "," + lettre + "," + resultat_transition)
@@ -134,8 +125,6 @@ def determinisation(alphabet, states, initial, final, transitions):
                 new_transition = transition.split(",")
                 if new_transition[0] not in new_states_off:
                     new_states_off.append(new_transition[0])
-
-    #print("init : ", new_initial)
 
     # RESULTAT DES NOUVELLES TRANSITIONS
     return (new_transitions, new_states_off, new_states_off[0])
