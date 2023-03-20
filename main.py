@@ -134,10 +134,10 @@ if __name__ == '__main__':
                     input("\nNext step : Complementary. \nClick on anything to continue …\n")
                     complement(alphabet, local_states, local_initial, local_final, local_transition)
                     input("click on anything to return to the menu\n\n\n")
-                    input(
-                        "\nNext step : Complementary. \nClick on anything to continue …\n")
                     complement(alphabet, states, initial,
                                final, list_transitions)
+                    input(
+                        "\nNext step : Complementary. \nClick on anything to continue …\n")
 
                 else:
                     print("It is no complete , so let's do it\n")
