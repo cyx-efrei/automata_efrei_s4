@@ -5,7 +5,6 @@ from word_recognition import word_recognition
 from minimization import minimization
 
 
-
 # Fonction pour filtrer les données d'une ligne
 
 
@@ -73,7 +72,7 @@ if __name__ == '__main__':
     file = choose_file()
 
     choice = 0
-    choice_list = ["1", "2", "3", "4","5"]
+    choice_list = ["1", "2", "3", "4", "5"]
 
     while choice != '4':
         afficher_menu()
@@ -85,7 +84,7 @@ if __name__ == '__main__':
 
         if choice == "1":
             print_matrix(alphabet, states, initial, final, list_transitions)
-            input("click on anything to return to the menu\n\n\n")
+            input("\nClick on anything to return to the menu\n\n\n")
 
         elif choice == "2":
             print_matrix(alphabet, states, initial, final, list_transitions)
@@ -95,10 +94,12 @@ if __name__ == '__main__':
                 print("Let's see if it's deterministic complete\n")
                 if is_complete(alphabet, states, list_transitions):
                     print("The automata is already deterministic complete\n")
-                    input("\nNext step : Complementary. \nClick on anything to continue …\n")
+                    input(
+                        "\nNext step : Complementary. \nClick on anything to continue …\n")
                     print("jhbhjb")
-                    complement(alphabet, states, initial, final, list_transitions)
-                    input("click on anything to return to the menu\n\n\n")
+                    complement(alphabet, states, initial,
+                               final, list_transitions)
+                    input("\nClick on anything to return to the menu\n\n\n")
                     input(
                         "\nNext step : Complementary. \nClick on anything to continue …\n")
                     complement(alphabet, states, initial,
@@ -107,11 +108,15 @@ if __name__ == '__main__':
                 else:
                     print("It is no complete , so let's do it\n")
 
-                    local_transitions, local_states = completion(alphabet, states, list_transitions)
-                    print_matrix(alphabet, states, initial, final, list_transitions)
-                    input("\nNext step : Complementary. \nClick on anything to continue …\n")
-                    complement(alphabet, local_states, initial, final, local_transitions)
-                    input("click on anything to return to the menu\n\n\n")
+                    local_transitions, local_states = completion(
+                        alphabet, states, list_transitions)
+                    print_matrix(alphabet, states, initial,
+                                 final, list_transitions)
+                    input(
+                        "\nNext step : Complementary. \nClick on anything to continue …\n")
+                    complement(alphabet, local_states, initial,
+                               final, local_transitions)
+                    input("\nClick on anything to return to the menu\n\n\n")
                     list_transitions, states = completion(
                         alphabet, states, list_transitions)
                     print_matrix(alphabet, states, initial,
@@ -124,16 +129,18 @@ if __name__ == '__main__':
                 print("It's not deterministic \nlet's determinize it\n")
 
                 local_transition, local_states, local_initial, local_final = determinisation(alphabet, states, initial,
-                                                                                final, list_transitions)
+                                                                                             final, list_transitions)
 
                 print_matrix(alphabet, local_states, local_initial,
                              local_final, local_transition)
                 input("\nNext step : Completion. \nClick on anything to continue …\n")
                 if is_complete(alphabet, local_states, local_transition):
                     print("The automata is already deterministic complete\n")
-                    input("\nNext step : Complementary. \nClick on anything to continue …\n")
-                    complement(alphabet, local_states, local_initial, local_final, local_transition)
-                    input("click on anything to return to the menu\n\n\n")
+                    input(
+                        "\nNext step : Complementary. \nClick on anything to continue …\n")
+                    complement(alphabet, local_states, local_initial,
+                               local_final, local_transition)
+                    input("\nClick on anything to return to the menu\n\n\n")
                     complement(alphabet, states, initial,
                                final, list_transitions)
                     input(
@@ -142,12 +149,15 @@ if __name__ == '__main__':
                 else:
                     print("It is no complete , so let's do it\n")
 
-                    local_transition, local_states = completion(alphabet, local_states, local_transition)
-                    print_matrix(alphabet, local_states, local_initial, local_final, local_transition)
-                    input("\nNext step : Complementary. \nClick on anything to continue …\n")
-                    complement(alphabet, local_states, local_initial, local_final, local_transition)
+                    local_transition, local_states = completion(
+                        alphabet, local_states, local_transition)
+                    print_matrix(alphabet, local_states,
+                                 local_initial, local_final, local_transition)
+                    input(
+                        "\nNext step : Complementary. \nClick on anything to continue …\n")
+                    complement(alphabet, local_states, local_initial,
+                               local_final, local_transition)
                     input("\nClick on anything to return to the menu\n\n\n")
-
 
                     list_transitions, local_states = completion(
                         alphabet, local_states, local_transition)
@@ -162,12 +172,11 @@ if __name__ == '__main__':
             print("\n\n-- TEST STANDARSIZATION : --")
             if is_standard(initial, list_transitions):
                 print("is already standardize !\n\n\n")
-                input("click on anything to return to the menu\n\n\n")
+                input("\nClick on anything to return to the menu\n\n\n")
             else:
                 print("let's standardize")
                 standardize(alphabet, states, initial, final, list_transitions)
-                input("click on anything to return to the menu\n\n\n")
-
+                input("\nClick on anything to return to the menu\n\n\n")
 
         elif choice == "4":
             print("\n\n-- TEST Word Recognation  : --")
@@ -177,11 +186,9 @@ if __name__ == '__main__':
                 print("\nEnter the word to recognize :\n -> ", end="")
                 word = input()
                 word_recognition(initial, final, list_transitions, word)
-                input("click on anything to return to the menu\n\n\n")
+            input("\nClick on anything to return to the menu\n\n\n")
 
         elif choice == "5":
             break
-
-
 
     print("\n\nbyeee")
