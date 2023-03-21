@@ -1,3 +1,6 @@
+from table_display import print_matrix
+
+
 def minimization(alphabet, states, initial, final, transitions):
     final_transitions = []
     Term_letter = {}
@@ -5,12 +8,14 @@ def minimization(alphabet, states, initial, final, transitions):
     NT = []
     T = []
     # LIST OF ALL NT STATES
-    for letter in states:
-        if letter not in final:
-            NT.append(letter)
+    for state in states:
+        if state not in final:
+            NT.append(state)
         else:
-            T.append(letter)
+            print("ajout", state)
+            T.append(state)
     print("Nterm : ", NT)
+    print("term : ", T)
 
     if len(NT) == 1:
         final_transitions.append(NT[0])
@@ -46,23 +51,73 @@ def minimization(alphabet, states, initial, final, transitions):
     recursive_prep["NT"] = NTerm_letter
     recursive_prep["T"] = Term_letter
 
-    end_transition = recursive_minimize_v2(recursive_prep)
-    for trans in final_transitions:
-        end_transition.append(trans)
+    end_transition = recursive_minimize_v2(
+        recursive_prep, transitions, alphabet)
+
+    print(end_transition)
+
+    # for trans in final_transitions:
+    #     end_transition.append(trans)
+
+    final_states = []
+    for i in end_transition:
+        res = ""
+        for j in i:
+            res += j
+        if res != "":
+            final_states.append(res)
+
+    print("fs", final_states)
+
+    transition_off = []
+    for state in final_states:
+        for letter in alphabet:
+            for transition in transitions:
+                print(state)
+                print(state[0])
+                if transition[0] == state[0] and transition[2] == letter:
+                    # print(transition[0], state,
+                    #       transition[2], letter, transition)
+                    for transition_state in final_states:
+                        if transition[-1] in transition_state and (state+","+letter+","+transition_state) not in transition_off:
+                            transition_off.append(
+                                state+","+letter+","+transition_state)
+
+    # FIND TERMINALS
+    term_states = []
+    for i in final:
+        for j in final_states:
+            if i in j and j not in term_states:
+                term_states.append(j)
+
+    # FIND INITIALS
+    init_states = []
+    for i in initial:
+        for j in final_states:
+            if i in j and j not in init_states:
+                init_states.append(j)
+
+    print(transition_off, final_states, term_states, init_states)
+
+    print_matrix(alphabet, final_states, init_states,
+                 term_states, transition_off)
 
 
-def recursive_minimize_v2(Dict):
+def recursive_minimize_v2(Dict, transitions, alphabet):
     print("Start or Restart the recursive : ", dict)
     end = []
-    for cle, valeur in Dict.items():
-        print("---------", cle, valeur)
+    for cle, values in Dict.items():
+        print("---------", cle, values)
         exist_items = []
         exist_items_id = []
-        for key, valeur in valeur.items():
+        for key, valeur in values.items():
             print("---------", key, valeur)
+            # Ici on va écrire les nouveaux noms des states
             if valeur not in exist_items:
+                print("in", values)
                 exist_items.append(valeur)
                 exist_items_id.append(key)
+                # print(valeur, "in", exist_items, "and", valeur in exist_items)
             else:
                 j = 0
                 while j < len(exist_items):
@@ -71,65 +126,121 @@ def recursive_minimize_v2(Dict):
                         new_state += str(key)
                         exist_items_id[j] = new_state
                         break
-                        j += 1
+                    j += 1
+            # jusque là
+
+        # end_loop = True
+        # for new_th in exist_items_id:
+        #     print(new_th, "kjbjkb", len(new_th))
+        #     if len(new_th) > 1:
+        #         end_loop = False
+        #         print("on rentre dedans là nn ?")
+        #         # sous_recursive(new_th, values, Dict)
+        #         break
+
+        # if end_loop != True:
+        #     print("okk?")
+
+        print(Dict)
+
         print("--- RESULT ---")
         print(exist_items)
         print(exist_items_id)
+        end_temp = []
         for new_id in exist_items_id:
-            end.append(new_id)
-    return (end)
+            end_temp.append(new_id)
+        end.append(end_temp)
+        print("end : ", end)
+
+        final_dictionnary_part = {}
+        print("BAH WSHHHHHHHHHHHHHHHHHHHHHHHHHH", end)
+        while True:
+            print("=======================", end)
+            exist_items_id_off = []
+            for partition in end:
+                dictionnary_part = {}
+                for sous_partition in partition:
+                    # print(sous_partition)
+                    if len(sous_partition) > 1:
+                        new_partition = {}
+                        res = ""
+                        for state in sous_partition:
+                            # print(state, "jhbjhcbjhshbcxshbcjdsbh")
+                            print("return", state, "for", search_fill(
+                                state, end, transitions, alphabet))
+                            dictionnary_part[state] = search_fill(
+                                state, end, transitions, alphabet)
+                            print("may : ", dictionnary_part)
+
+                exist_items_temp = []
+                dictionnary_part_end = {}
+                exist_items_id_temp = []
+                print("enndd =====!!!! : ", dictionnary_part)
+                for key, value in dictionnary_part.items():
+                    # print("value", value)
+                    if value not in exist_items_temp:
+                        exist_items_temp.append(value)
+                        exist_items_id_temp.append(key)
+                    else:
+                        for j in range(0, len(exist_items_temp)):
+                            if exist_items_temp[j] == value:
+                                res_temp = ""
+                                res_temp = exist_items_id_temp[j] + key
+                                exist_items_id_temp[j] = res_temp
+                                break
+                        print(key, res_temp)
+                        dictionnary_part_end[res_temp] = dictionnary_part[key]
+                        # dictionnary_part[key] = res_temp
+                print("FINISISSUBXSDJHBCJEHDBKCJBKDJEBCKJZB",
+                      dictionnary_part_end, 'and we have :', exist_items_temp, "and", exist_items_id_temp)
+
+                exist_items_id_off.append(exist_items_id_temp)
+                for key, value in dictionnary_part_end.items():
+                    print("searching --- :", key, exist_items_id_temp)
+                    if key in exist_items_id_temp:
+                        final_dictionnary_part[key] = dictionnary_part_end[key]
+
+                print("YES FINAL :", final_dictionnary_part, exist_items_id_off)
+
+            if len(exist_items_id_off) == len(end):
+                print("MINIMIZED !", exist_items_id_off)
+                break
+        # sous_recursive(end)
+    return (exist_items_id_off)
 
 
-def recursive_minimize(Dict):
-    print("\n\n\nh")
-    end_matrix = []
-    new_matrix = []
-    for cle, valeur in Dict.items():
-        print("---------", cle, valeur)
-        if isinstance(valeur, dict):
-            print("C'EST LA FIN : ", valeur, dict)
-            return end_matrix.append(recursive_minimize(valeur))
-        else:
+def search_fill(state, end, transitions, alphabet):
+    print('DEBUTTTTT', state, end)
 
-            # WE SEE IF WE HAVE TWO SAME THINGS
-            if valeur not in new_matrix:
-                new_matrix.append(cle)
-                new_matrix.append(valeur)
-            else:
-                # WE ARE LOOKING FOR THE INDEX OF THE SAME 'VALEUR'
-                index = new_matrix.index(valeur)
-                print(index, 'index')
-                # WE MODIFIE THE FUTUR KEY TO CONBINE BOTH OF THEM
-                new_matrix[index-1] = new_matrix[index-1] + str(cle)
+    res = []
 
-    print("\nFinal Part")
-    for key, value in Dict.items():
-        print(key, value)
-    print(new_matrix, 'nmm',
-          len(new_matrix)//2, len(Dict.items()))
-    print(Dict, "\n\n")
+    for letter in alphabet:
+        transition_temp = ""
+        for transition in transitions:
+            transition = transition.split(",")
+            # print(transition, "hhhhhhhhhh")
+            if transition[0] == state and transition[1] == letter:
+                transition_temp = transition[2]
+                break
+        print("testtttttttttt", transition)
+        Index_portion = 0
+        for new_state_temp in end:
+            for sous_new_state in new_state_temp:
+                found = 0
+                print("SUITEEEE ", sous_new_state, transition[2])
+                if transition[2] in sous_new_state:
+                    # print("FOUND :", sous_new_state, "from", state, Index_portion, "and", transition[2])
+                    res.append(sous_new_state)
+                    found = 1
+                    Index_portion += 1
+            if found == 0:
+                res.append(transition[2])
 
-    if len(new_matrix)//2 == len(Dict.items()):
-        print("return 2")
-        print("Perfect !", Dict)
-        return Dict
-    else:
+    print("enddd =====", res)
+    return res
 
-        # ICI, C'EST QUAND ON A EU UN CHANGEMENT DONC ON DOIT RECREER UN TABLEAU AVEC LES TRANSITIONS
-        new_dict = dict(zip(new_matrix[::2], new_matrix[1::2]))
-        print(new_dict)
-
-        letter_transition = []
-        print("##########")
-        for key, value in new_dict.items():
-            print("key", key)
-        print("return 1")
-        return recursive_minimize(new_dict)
-
-    # for i in Dict.items():
-    #     print(i)
-    #     for cle, valeur in Dict[i].items():
-    #         print(cle, valeur)
+# def sous_recursive(new_th, exist_items, Dict):
+#     print("okjhcbduhbscjbdekskcjbdskjcbds", new_th, exist_items, Dict)
 
 
 # THIS IS TO KNOW IN WHICH TABLE IS THE A STATE
