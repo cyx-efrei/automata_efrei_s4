@@ -1,21 +1,23 @@
 from table_display import print_matrix
+from supp_main import print_progressively
 
 
 def is_standard(initial, transitions):
 
     # Vérifier s'il y a un seul état initial
     if len(initial) != 1:
-        print("more than 1 entry")
+        print_progressively("NO !")
+        print("\nExplanation : Your automaton has more than 1 entry")
         return False
 
     for transition in transitions:
         if transition[4] == initial[0]:
+            print_progressively("NO !")
             print(
-                "There is a transition to the initial state so the automaton is not standard !")
+                "\nExplanation : There is a transition to the initial state so the automaton is not standard !")
             return False
 
     # Si toutes les conditions sont satisfaites, l'automate est standard
-    print("Automate standard")
     return True
 
 

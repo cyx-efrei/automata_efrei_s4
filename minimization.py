@@ -1,7 +1,99 @@
 from table_display import print_matrix
 
 
-def minimization(alphabet, states, initial, final, transitions):
+def minimization(alphabet, states, initial_state, final_state, list_transitions):
+
+    def split(partition, symbol):
+        split_result = {}
+        for part in partition:
+            split_temp = {}
+            for state in part:
+                for transition in list_transitions:
+                    start, letter, end = transition.split(',')
+                    if start == state and letter == symbol:
+                        if end in split_temp:
+                            split_temp[end].append(state)
+                        else:
+                            split_temp[end] = [state]
+
+            for splitted in split_temp.values():
+                splitted = frozenset(splitted)
+                if splitted in split_result:
+                    split_result[splitted] |= splitted
+                else:
+                    split_result[splitted] = splitted
+        return set(split_result.keys())
+
+    # Initial partition (final and non-final states)
+    P = {frozenset(final_state), frozenset(
+        set(states).difference(final_state))}
+    W = {frozenset(final_state)}
+
+    while W:
+        A = W.pop()
+        for symbol in alphabet:
+            Ys = split(P, symbol)
+            for Y in Ys:
+                if Y.intersection(A):
+                    Y_difference_A = Y.difference(A)
+                    old_Y = None
+                    for part in P:
+                        if Y.issubset(part):
+                            old_Y = part
+                            break
+                    if old_Y:
+                        P.discard(old_Y)
+                        P.update([Y.intersection(A), Y_difference_A])
+
+                        if old_Y in W:
+                            W.discard(old_Y)
+                            W.update([Y.intersection(A), Y_difference_A])
+                        else:
+                            W.add(Y.intersection(A) if len(Y.intersection(A))
+                                  <= len(Y_difference_A) else Y_difference_A)
+
+    # Create minimized transitions
+    minimized_transitions = []
+    new_initial_state = None
+    new_final_state = None
+    for part in P:
+        for state in part:
+            if state == initial_state[0]:
+                new_initial_state = ','.join(part)
+            if state in final_state:
+                new_final_state = ','.join(part)
+            for transition in list_transitions:
+                start, letter, end = transition.split(',')
+                if start == state:
+                    new_start = ','.join(part)
+                    for part_end in P:
+                        if end in part_end:
+                            new_end = ','.join(part_end)
+                            break
+                    new_transition = f'{new_start},{letter},{new_end}'
+                    if new_transition not in minimized_transitions:
+                        minimized_transitions.append(new_transition)
+
+    # Create new minimized states
+    minimized_states = [','.join(part) for part in P]
+
+    print("Minimized alphabet:", alphabet)
+    print("Minimized states:", minimized_states)
+    print("Minimized initial state:", new_initial_state)
+    print("Minimized final states:", new_final_state)
+    print("Minimized transitions:", minimized_transitions)
+
+    return alphabet, minimized_states, [new_initial_state], [new_final_state], minimized_transitions
+
+
+# # Test minimization
+# url = "path/to/your/automaton/file.txt"
+# alphabet, states, initial_state, final_state, list_transitions = ouverture(url)
+# minimized_alphabet, minimized_states, minimized_initial_state, minimized_final_state, minimized_transitions = hopcroft_minimization(
+#     alphabet, states, initial_state, final_state, list_transitions)
+
+
+def minimization2(alphabet, states, initial, final, transitions):
     final_transitions = []
     Term_letter = {}
     NTerm_letter = {}

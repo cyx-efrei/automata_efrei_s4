@@ -1,4 +1,5 @@
-# from table_display import print_matrix
+
+from supp_main import print_progressively
 
 
 def is_deterministic(states, initial, transitions):
@@ -13,7 +14,6 @@ def is_deterministic(states, initial, transitions):
             if transition[0] == state:
                 actual_letter = transition[2]
                 if actual_letter in letter:
-                    print("3")
                     return False
                 letter.add(actual_letter)
 
@@ -42,7 +42,9 @@ def is_complete(alphabet, states, transitions):
             missed_transition.append(list_differences)
 
     if len(missed_transition) != 0:
-        print("This automaton is not complete because : ")
+        print_progressively("NO !")
+        input("\nNext step : Explanation !\nClick on anything to continue\n")
+        print("\n\n======= EXPLANATION\n\nThis automaton is not complete because : ")
         i = 0
         while i < len(missed_transition):
             if i % 2:
@@ -54,9 +56,9 @@ def is_complete(alphabet, states, transitions):
                       missed_transition[i], "doesn't have : ")
             i += 1
 
+        input("\nNext step : Completion !\nClick on anything to continue\n")
         return False
     else:
-        print("This automaton is already complete !")
         return True
 
 
@@ -127,18 +129,14 @@ def determinisation(alphabet, states, initial, final, transitions):
                     new_states_off.append(new_transition[0])
 
     # RESULTAT DES NOUVELLES TRANSITIONS
-    print(new_states_off[0])
+
     new_finals = []
     for final_state in final:
         for states in new_states_off:
-            print(final, states)
             for j in states:
-                print("comparison", j, final)
-                if j in final and states not in new_finals:
-                    print("ajoute", states)
-                    new_finals.append(states)
 
-    print("lets", new_finals)
+                if j in final and states not in new_finals:
+                    new_finals.append(states)
 
     # le premier state est celui qui sera inital
     return (new_transitions, new_states_off, new_states_off[0], new_finals)
