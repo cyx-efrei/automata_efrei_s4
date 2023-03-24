@@ -53,7 +53,7 @@ def choose_file():
         if (file_name < 1 or file_name > 44):
             print("\nPlease redo :")
 
-    return "./test/INT3-5-" + str(file_name) + ".txt"
+    return "./automate/INT3-5-" + str(file_name) + ".txt"
 
 
 def afficher_menu():
