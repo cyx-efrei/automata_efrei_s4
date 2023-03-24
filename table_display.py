@@ -4,7 +4,7 @@ from prettytable import PrettyTable
 
 # PRINT MATRIX
 def get_arrow(i, initial, final):
-    if i in initial and i in final:
+    if i in initial and i in final:             # Fonction to return an arrow according to the type (if in initial or in final or in both)
         return ("<-->")
     else:
         if i in initial:

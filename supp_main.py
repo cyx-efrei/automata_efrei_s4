@@ -3,7 +3,6 @@ import time
 
 # Fonction of the main menu
 
-
 def afficher_menu():
     print("\n\n\n\n==================== MAIN MENU ====================\n")
     print("1. TAP 1 - Display the table of the automate")
@@ -32,8 +31,8 @@ def choose_file():
 def filtrer_list(list_name, num_line, first_char, separator):
     return list_name[num_line][first_char:].split(separator)
 
-# Fonction pour ouvrir un fichier txt + lire + trier
 
+# Fonction pour ouvrir un fichier txt + lire + trier
 
 def ouverture(url):
     with open(url, 'r') as f:

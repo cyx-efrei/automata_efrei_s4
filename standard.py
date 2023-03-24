@@ -10,7 +10,7 @@ def is_standard(initial, transitions):
         print("\nExplanation : Your automaton has more than 1 entry")
         return False
 
-    for transition in transitions:
+    for transition in transitions:                                  # We check if there is a transition to the initial state
         if transition[4] == initial[0]:
             print_progressively("NO !")
             print(
@@ -23,8 +23,7 @@ def is_standard(initial, transitions):
 
 # to standardize an automaton
 def standardize(alphabet, states, initials, final, transitions):
-    if len(initials) >= 1:
-        new_initials = []
+    if len(initials) >= 1:                                              # Already standard if only one initial bc we have verified if no transitions to the initial
         for initial in initials:
             for transition in transitions:
                 if transition[0] == initial:
@@ -32,7 +31,7 @@ def standardize(alphabet, states, initials, final, transitions):
                         transitions.append("i" + transition[1:])
                     if (transition[-1] in final and "i" not in final):
                         final.append("i")
-    initials = "i"
+    initials = "i"                                                      # Changing all initial states 
     states.append("i")
     print_matrix(alphabet, states, initials, final, transitions)
     # print(is_standard(initials, transitions))
