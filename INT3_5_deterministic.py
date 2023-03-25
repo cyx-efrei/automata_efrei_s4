@@ -1,8 +1,8 @@
-from supp_main import print_progressively
+from INT3_5_supp_main import print_progressively
 
 
 def is_deterministic(states, initial, transitions):
- # Vérification des états initiaux
+# Vérification des états initiaux
     if len(initial) != 1:
         return False
 
@@ -52,8 +52,7 @@ def is_complete(alphabet, states, transitions):
                     print("-    Transition of", j)
 
             else:
-                print("\nThe state",
-                      missed_transition[i], "doesn't have : ")
+                print("\nThe state", missed_transition[i], "doesn't have : ")
             i += 1
 
         input("\nNext step : Completion !\nClick on anything to continue\n")
@@ -102,8 +101,7 @@ def determinisation(alphabet, states, initial, final, transitions):
                     resultat_transition += transition[4]                        # Here, we combine all letters
         if resultat_transition != "":
             new_transitions_base.append(resultat_transition)                    # List of all new states
-            new_transitions.append(etats_initiaux_string + "," +
-                                   lettre + "," + resultat_transition)          # list of all new transitions
+            new_transitions.append(etats_initiaux_string + "," + lettre + "," + resultat_transition)          # list of all new transitions
 
     
     for new_states in new_transitions_base:                                     # on balaye les nouveaux states ( 013 puis 02 )

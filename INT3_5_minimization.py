@@ -1,4 +1,4 @@
-from table_display import print_matrix
+from INT3_5_table_display import print_matrix
 
 
 def minimization(alphabet, states, initial_state, final_state, list_transitions):
@@ -49,8 +49,7 @@ def minimization(alphabet, states, initial_state, final_state, list_transitions)
                             W.discard(old_Y)
                             W.update([Y.intersection(A), Y_difference_A])
                         else:
-                            W.add(Y.intersection(A) if len(Y.intersection(A))
-                                  <= len(Y_difference_A) else Y_difference_A)
+                            W.add(Y.intersection(A) if len(Y.intersection(A)) <= len(Y_difference_A) else Y_difference_A)
 
     # Create minimized transitions
     minimized_transitions = []

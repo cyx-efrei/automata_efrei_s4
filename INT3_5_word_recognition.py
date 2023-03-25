@@ -1,4 +1,4 @@
-from deterministic import is_deterministic
+from INT3_5_deterministic import is_deterministic
 
 
 def word_recognition(initial, final, transitions, word):
@@ -19,8 +19,7 @@ def word_recognition(initial, final, transitions, word):
 
             # CHECK IF THE FIRST LETTER HAS BEEN FOUND
             if found == 0:
-                print("The first character", word[i],
-                      "has not been found\nSorry, the word \"", word, "\"is not recognize by this automaton")
+                print("The first character", word[i],"has not been found\nSorry, the word \"", word, "\"is not recognize by this automaton")
                 return
                 # RETURN WHEN THE NEXT LETTER IS NOT FINDABLE
 
@@ -28,16 +27,14 @@ def word_recognition(initial, final, transitions, word):
         else:
             for transition in transitions:
                 if transition[0] == order_states[-1] and transition[2] == word[i]:
-                    print("- A transition with the character", word[i],
-                          "has been found from", transition[0], "to", transition[-1])
+                    print("- A transition with the character", word[i], "has been found from", transition[0], "to", transition[-1])
                     order_states.append(transition[-1])
                     found = 1
                     break
 
             # CHECK IF THE LETTER HAS BEEN FOUND
             if found == 0:
-                print("\nNo transition with the character", word[i],
-                      "has not been found\nSorry, the word \"", word, "\"is not recognize by this automaton")
+                print("\nNo transition with the character", word[i], "has not been found\nSorry, the word \"", word, "\"is not recognize by this automaton")
                 return
                 # RETURN WHEN THE NEXT LETTER IS NOT FINDABLE
 
@@ -46,6 +43,5 @@ def word_recognition(initial, final, transitions, word):
             if order_states[-1] in final:
                 print("\nThe word", word, "is succefully recognize")
             else:
-                print("\nThe last state to complete the word \"", word,
-                      "\" isn't a terminal so it's not recognize ! (Last state :", order_states[-1] + ")")
+                print("\nThe last state to complete the word \"", word, "\" isn't a terminal so it's not recognize ! (Last state :", order_states[-1] + ")")
                 return

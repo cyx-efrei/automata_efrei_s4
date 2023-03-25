@@ -1,4 +1,4 @@
-# Pour obtenir les valeurs sous la forme d'un tableaud
+# Pour obtenir les valeurs sous la forme d'un tableau
 
 def split_values_in_table(entries):
     print("\n\n-- RECUPERATION --")
