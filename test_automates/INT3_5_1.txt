@@ -1,0 +1,148 @@
+
+
+
+  ________  ________   ___   __  ____________              __  ______  __________  _   __
+ /_  __/ / / / ____/  /   | / / / /_  __/ __ \            /  |/  /   |/_  __/ __ \/ | / /
+  / / / /_/ / __/    / /| |/ / / / / / / / / /  ______   / /|_/ / /| | / / / / / /  |/ / 
+ / / / __  / /___   / ___ / /_/ / / / / /_/ /  /_____/  / /  / / ___ |/ / / /_/ / /|  /  
+/_/ /_/ /_/_____/  /_/  |_\____/ /_/  \____/           /_/  /_/_/  |_/_/  \____/_/ |_/   
+
+By Cyril Nakha, Ali Nahas , Nathan Krief , Paul Hu
+
+
+
+
+Please, enter your number of automaton to test :
+-> 1
+
+
+
+
+==================== MAIN MENU ====================
+
+1. TAP 1 - Display the table of the automate
+2. TAP 2 - See if it's deterministic    --    Determinise it if not
+3. TAP 3 - See if it's standard         --    Standardize it if not
+4. TAP 4 - Word Recognation
+5. TAP 5 - Change your automaton
+6. TAP 6 - Quit
+
+Your choice : 
+ -> 1
+
+
+
+
+==================== DISPLAY AUTOMATON ====================
+
++------+--------+
+|      | STATES |
++------+--------+
+| <--> |   0    |
++------+--------+
+
+Click on anything to return to the menu
+
+
+
+
+
+==================== MAIN MENU ====================
+
+1. TAP 1 - Display the table of the automate
+2. TAP 2 - See if it's deterministic    --    Determinise it if not
+3. TAP 3 - See if it's standard         --    Standardize it if not
+4. TAP 4 - Word Recognation
+5. TAP 5 - Change your automaton
+6. TAP 6 - Quit
+
+Your choice : 
+ -> 2
+
+
+
+
+==================== DETERMINISTIC ====================
+
+     - There is your default automaton : 
+
+
++------+--------+
+|      | STATES |
++------+--------+
+| <--> |   0    |
++------+--------+
+
+Is your automaton determinized ? 
+ -> yes !
+
+
+Next step : Completion !
+Click on anything to continue
+
+
+==================== COMPLETION PART ====================
+
+Is your automaton complete ? 
+ -> yes !
+
+
+Next step : Complementary. 
+Click on anything to continue …
+
+
+==================== COMPLEMENT PART ====================
+
++-----+--------+
+|     | STATES |
++-----+--------+
+| --> |   0    |
++-----+--------+
+
+Return to the MAIN MENU. 
+Click on anything to continue …
+
+
+
+
+
+==================== MAIN MENU ====================
+
+1. TAP 1 - Display the table of the automate
+2. TAP 2 - See if it's deterministic    --    Determinise it if not
+3. TAP 3 - See if it's standard         --    Standardize it if not
+4. TAP 4 - Word Recognation
+5. TAP 5 - Change your automaton
+6. TAP 6 - Quit
+
+Your choice : 
+ -> 3
+
+
+
+
+==================== STANDARDIZATION ====================
+
+
+Is your automaton standardize ? 
+ -> yes !
+
+
+Return to the MAIN MENU. 
+Click on anything to continue …
+
+
+
+
+
+==================== MAIN MENU ====================
+
+1. TAP 1 - Display the table of the automate
+2. TAP 2 - See if it's deterministic    --    Determinise it if not
+3. TAP 3 - See if it's standard         --    Standardize it if not
+4. TAP 4 - Word Recognation
+5. TAP 5 - Change your automaton
+6. TAP 6 - Quit
+
+Your choice : 
+ -> 4
