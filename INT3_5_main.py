@@ -95,7 +95,6 @@ if __name__ == '__main__':
 
                 local_alphabet, local_transition, local_states, local_initial, local_final = determinisation(alphabet, states, initial,
                                                                                              final, list_transitions)
-                print(local_alphabet)
                 print("There is the deterministic automaton : \n")
                 print_matrix(local_alphabet, local_states, local_initial,
                              local_final, local_transition)
@@ -149,7 +148,6 @@ if __name__ == '__main__':
             print("\nIs your automaton standardize ? \n -> ", end="")
 
             # IF IT IS STANDARD
-            print(initial, list_transitions, "hhhh")
             if is_standard(initial, list_transitions):
                 print_progressively("yes !")
                 input("\nReturn to the MAIN MENU. \nClick on anything to continue …\n")
@@ -166,7 +164,7 @@ if __name__ == '__main__':
 
             word = "psp"
             while word != "end":
-                print("\nEnter the word to recognize :\n -> ", end="")
+                print("\nEnter \"end\" to stop the loop.\nEnter the word to recognize :\n -> ", end="")
                 word = input()
                 word_recognition(initial, final, list_transitions, word)
             input("\nReturn to the MAIN MENU. \nClick on anything to continue …\n")
