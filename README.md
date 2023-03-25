@@ -12,8 +12,8 @@ Project of S4 in Finite Automata, Efrei.
 
 | Status | Description | Color Code |
 |--------|-------------|------------|
-|Working| The Functionnality is available. | ![Working](https://i.ibb.co/3FntR1c/1.png) |
-|Started| Pending, Some anothers issues OR not checked that is it working or not.| ![Others](https://i.ibb.co/pQwqwcN/3.png)|
+|Working| The Functionality is available. | ![Working](https://i.ibb.co/3FntR1c/1.png) |
+|Started| Pending, Some other issues OR not checked that is it working or not.| ![Others](https://i.ibb.co/pQwqwcN/3.png)|
 |Not-Started| The function is not working OR doesn't exist.|![Not-Working](https://i.ibb.co/wWtD8S6/2.png) |
 
 <br>
@@ -27,7 +27,7 @@ Project of S4 in Finite Automata, Efrei.
 |is_standard| Check whether the deterministic automaton FA is standard.| ![Working](https://i.ibb.co/3FntR1c/1.png) |
 |completion| Construction of a complete deterministic automaton from a deterministic automaton FA if the latter is not complete.| ![Working](https://i.ibb.co/3FntR1c/1.png)|
 |determinization | Construction of a complete deterministic automaton from a non-deterministic automaton FA.| ![Working](https://i.ibb.co/3FntR1c/1.png)|
-|stantadization | Construction of standardize automaton from a non-standardize automaton.| ![Working](https://i.ibb.co/3FntR1c/1.png)|
+|stantardization | Construction of standardize automaton from a non-standardize automaton.| ![Working](https://i.ibb.co/3FntR1c/1.png)|
 |display_matrix| Display the automaton.| ![Working](https://i.ibb.co/3FntR1c/1.png)|
 |TO DEFINE| calculating the equivalent minimal FA.| ![Not-Working](https://i.ibb.co/wWtD8S6/2.png)|
 |word_recognition| Testing word recognition. | ![Working](https://i.ibb.co/3FntR1c/1.png)|
@@ -68,9 +68,3 @@ Run the program :
 ## Lessons Learned
 
 What did you learn while building this project? What challenges did you face and how did you overcome them?
-
-
-
-
-
-
