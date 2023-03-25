@@ -1,5 +1,5 @@
-from table_display import print_matrix
-from supp_main import print_progressively
+from INT3_5_table_display import print_matrix
+from INT3_5_supp_main import print_progressively
 
 
 def is_standard(initial, transitions):

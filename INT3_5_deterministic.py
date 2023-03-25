@@ -1,4 +1,4 @@
-from supp_main import print_progressively
+from INT3_5_supp_main import print_progressively
 
 
 def is_deterministic(states, initial, transitions):

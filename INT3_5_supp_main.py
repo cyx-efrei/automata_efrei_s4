@@ -23,7 +23,7 @@ def choose_file():
         if (file_name < 1 or file_name > 44):
             print("\nPlease redo :")
 
-    return "./automate/INT3-5-" + str(file_name) + ".txt"
+    return "./INT3_5_automate/INT3_5_" + str(file_name) + ".txt"
 
 
 # Fonction pour filtrer les données d'une ligne

@@ -1,4 +1,4 @@
-from deterministic import is_deterministic
+from INT3_5_deterministic import is_deterministic
 
 
 def word_recognition(initial, final, transitions, word):

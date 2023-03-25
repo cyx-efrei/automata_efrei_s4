@@ -1,4 +1,4 @@
-from table_display import print_matrix
+from INT3_5_table_display import print_matrix
 
 
 def minimization(alphabet, states, initial_state, final_state, list_transitions):

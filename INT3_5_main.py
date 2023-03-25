@@ -1,10 +1,10 @@
-from standard import *
-from deterministic import *
-from table_display import *
-from word_recognition import *
-from minimization import minimization
-from complementary import *
-from supp_main import *
+from INT3_5_standard import *
+from INT3_5_deterministic import *
+from INT3_5_table_display import *
+from INT3_5_word_recognition import *
+from INT3_5_minimization import minimization
+from INT3_5_complementary import *
+from INT3_5_supp_main import *
 
 
 if __name__ == '__main__':
