@@ -87,6 +87,40 @@ def completion(alphabet, states, transitions):
 
 def determinisation(alphabet, states, initial, final, transitions):
 
+
+    # HOW ? WE HAVE JUST REPLACE ALL TRANSITIONS OF EPSILON LIKE THIS : 1ε2, 2a3 ==> 1a3
+    if 'ε' in alphabet:
+        temp_new_transitions = []
+        new_temp_term=[]
+        # SUPP LES EPSILONS
+        for transition in transitions:
+            if "ε" in transition:
+                #print(transition)
+                for transition2 in transitions:
+                    new_line_transition = ""
+                    #print("trans2 : ",transition, transition[-1], transition2[0])
+                    if transition[-1] == transition2[0]:
+                        new_line_transition += transition[0] + transition2[1:]
+                        if "ε" in new_line_transition:
+                            transitions.append(new_line_transition)
+                        else : 
+                            temp_new_transitions.append(new_line_transition)
+                        #print("final line", new_line_transition)
+                    elif transition[-1] in final and transition[0] not in new_temp_term:
+                        new_temp_term.append(transition[0])
+            
+            else : 
+                temp_new_transitions.append(transition)
+        
+        #print("term : ", new_temp_term)
+        #print("trans : ", temp_new_transitions)
+
+        final = new_temp_term
+        transitions = temp_new_transitions
+
+                    
+
+
     etats_initiaux_string = ""
     for etat in initial:
         etats_initiaux_string += str(etat)                                      # We create the first new state with all initial states            
