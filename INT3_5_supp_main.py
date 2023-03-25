@@ -35,7 +35,7 @@ def filtrer_list(list_name, num_line, first_char, separator):
 # Fonction pour ouvrir un fichier txt + lire + trier
 
 def ouverture(url):
-    with open(url, 'r') as f:
+    with open(url, 'r', encoding='utf-8') as f:
         lines = f.read().splitlines()
 
         alphabet = filtrer_list(lines, 0, 4, ',')
@@ -49,6 +49,9 @@ def ouverture(url):
         list_transitions = []
         for line in lines[4:]:
             list_transitions.append(line)
+
+        if len(alphabet) == 1 and alphabet[0] == "":
+            alphabet = []
 
     return alphabet, states, initial_state, final_state, list_transitions
 

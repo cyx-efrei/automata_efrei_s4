@@ -25,6 +25,7 @@ if __name__ == '__main__':
 
     while choice != '6':
         afficher_menu()
+
         choice = input("\nYour choice : \n -> ")
         while choice not in choice_list:
             choice = input("\nPlease redo: \n -> ")
@@ -42,7 +43,7 @@ if __name__ == '__main__':
             print("\nIs your automaton determinized ? \n -> ", end="")
 
             # IF THE AUTOMATON IS DETERMINIZED
-            if is_deterministic(states, initial, list_transitions):
+            if is_deterministic(alphabet, states, initial, list_transitions):
                 print_progressively("yes !")
                 input("\nNext step : Completion !\nClick on anything to continue\n")
                 # await_time()
@@ -148,6 +149,7 @@ if __name__ == '__main__':
             print("\nIs your automaton standardize ? \n -> ", end="")
 
             # IF IT IS STANDARD
+            print(initial, list_transitions, "hhhh")
             if is_standard(initial, list_transitions):
                 print_progressively("yes !")
                 input("\nReturn to the MAIN MENU. \nClick on anything to continue …\n")

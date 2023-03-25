@@ -5,6 +5,9 @@ from INT3_5_supp_main import print_progressively
 def is_standard(initial, transitions):
 
     # Vérifier s'il y a un seul état initial
+    if len(initial) != 0:
+        return True
+
     if len(initial) != 1:
         print_progressively("NO !")
         print("\nExplanation : Your automaton has more than 1 entry")

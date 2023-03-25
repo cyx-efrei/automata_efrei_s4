@@ -1,7 +1,11 @@
 from INT3_5_supp_main import print_progressively
 
 
-def is_deterministic(states, initial, transitions):
+def is_deterministic(alphabet, states, initial, transitions):
+
+    if len(alphabet) == 0:
+        return True
+
  # Vérification des états initiaux
     if len(initial) != 1:
         return False
@@ -22,6 +26,10 @@ def is_deterministic(states, initial, transitions):
 
 # TO SEE IF AN AUTOMATON IS COMPLETE
 def is_complete(alphabet, states, transitions):
+
+    if alphabet == "":
+        return True
+
     missed_transition = []
     for state in states:
         letters = []
@@ -177,7 +185,7 @@ def determinisation(alphabet, states, initial, final, transitions):
     
     new_alphabet=[]
     for letter in alphabet : 
-        if letter != "ε" or letter != "Îμ":
+        if letter != "ε":
             new_alphabet.append(letter)
 
     # le premier state est celui qui sera inital
