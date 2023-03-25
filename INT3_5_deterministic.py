@@ -177,7 +177,7 @@ def determinisation(alphabet, states, initial, final, transitions):
     
     new_alphabet=[]
     for letter in alphabet : 
-        if letter != "ε":
+        if letter != "ε" or letter != "Îμ":
             new_alphabet.append(letter)
 
     # le premier state est celui qui sera inital
