@@ -6,9 +6,9 @@ import time
 def afficher_menu():
     print("\n\n\n\n==================== MAIN MENU ====================\n")
     print("1. TAP 1 - Display the table of the automate")
-    print("2. TAP 2 - See if it's deterministic    --    Determinise it if not")
+    print("2. TAP 2 - See if it's deterministic    --    Determinize it if not")
     print("3. TAP 3 - See if it's standard         --    Standardize it if not")
-    print("4. TAP 4 - Word Recognation")
+    print("4. TAP 4 - Word Recognition")
     print("5. TAP 5 - Change your automaton")
     print("6. TAP 6 - Quit")
 
@@ -23,7 +23,7 @@ def choose_file():
         if (file_name < 1 or file_name > 44):
             print("\nPlease redo :")
 
-    return "./automate/INT3-5-" + str(file_name) + ".txt"
+    return "./INT3_5_automate/INT3_5_" + str(file_name) + ".txt"
 
 
 # Fonction pour filtrer les données d'une ligne

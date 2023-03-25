@@ -57,8 +57,7 @@ if __name__ == '__main__':
                         "\nNext step : Complementary. \nClick on anything to continue …\n")
                     print(
                         "\n==================== COMPLEMENT PART ====================\n")
-                    complement(alphabet, states, initial,
-                               final, list_transitions)
+                    complement(alphabet, states, initial, final, list_transitions)
 
                     input(
                         "\nReturn to the MAIN MENU. \nClick on anything to continue …\n")
@@ -72,8 +71,7 @@ if __name__ == '__main__':
                         alphabet, states, list_transitions)
 
                     print("There is your complete deterministic automaton : \n")
-                    print_matrix(alphabet, states, initial,
-                                 final, list_transitions)
+                    print_matrix(alphabet, states, initial, final, list_transitions)
 
                     input(
                         "\nNext step : Complementary. \nClick on anything to continue …\n")
@@ -81,8 +79,7 @@ if __name__ == '__main__':
                         "\n==================== COMPLEMENT PART ====================\n")
                     print("There is the complement automaton : \n")
 
-                    complement(alphabet, local_states, initial,
-                               final, local_transitions)
+                    complement(alphabet, local_states, initial, final, local_transitions)
 
                     input(
                         "\nReturn to the MAIN MENU. \nClick on anything to continue …\n")
@@ -92,15 +89,12 @@ if __name__ == '__main__':
                 print_progressively("NO !")
                 print("\n======== DETERMINIZATION")
 
-                local_transition, local_states, local_initial, local_final = determinisation(alphabet, states, initial,
-                                                                                             final, list_transitions)
+                local_transition, local_states, local_initial, local_final = determinisation(alphabet, states, initial, final, list_transitions)
                 print("There is the deterministic automaton : \n")
-                print_matrix(alphabet, local_states, local_initial,
-                             local_final, local_transition)
+                print_matrix(alphabet, local_states, local_initial, local_final, local_transition)
                 input("\nNext step : Completion !\nClick on anything to continue\n")
 
-                print(
-                    "\n==================== COMPLETION PART ====================")
+                print("\n==================== COMPLETION PART ====================")
                 print("\nIs your automaton complete ? \n -> ", end="")
 
                 # COMPLETION
@@ -110,8 +104,7 @@ if __name__ == '__main__':
                         "\nNext step : Complementary. \nClick on anything to continue …\n")
                     print(
                         "\n==================== COMPLEMENT PART ====================\n")
-                    complement(alphabet, local_states, local_initial,
-                               local_final, local_transition)
+                    complement(alphabet, local_states, local_initial, local_final, local_transition)
 
                     input(
                         "\nReturn to the MAIN MENU. \nClick on anything to continue …\n")
@@ -125,8 +118,7 @@ if __name__ == '__main__':
                         alphabet, local_states, local_transition)
 
                     print("There is your complete deterministic automaton : \n")
-                    print_matrix(alphabet, local_states,
-                                 local_initial, local_final, local_transition)
+                    print_matrix(alphabet, local_states, local_initial, local_final, local_transition)
 
                     input(
                         "\nNext step : Complementary. \nClick on anything to continue …\n")
@@ -134,8 +126,7 @@ if __name__ == '__main__':
                         "\n==================== COMPLEMENT PART ====================\n")
                     print("There is the complement automaton : \n")
 
-                    complement(alphabet, local_states, local_initial,
-                               local_final, local_transition)
+                    complement(alphabet, local_states, local_initial, local_final, local_transition)
 
                     input(
                         "\nReturn to the MAIN MENU. \nClick on anything to continue …\n")
@@ -179,4 +170,4 @@ if __name__ == '__main__':
         elif choice == "6":
             break
 
-    print("\n\nI finished my work for today ! Bye !")
+    print("\n\nI finished my work for today! Bye!")

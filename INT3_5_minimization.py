@@ -1,6 +1,5 @@
 from INT3_5_table_display import print_matrix
 
-
 def minimization(alphabet, states, initial_state, final_state, list_transitions):
 
     def split(partition, symbol):
@@ -190,8 +189,7 @@ def minimization2(alphabet, states, initial, final, transitions):
 
     print(transition_off, final_states, term_states, init_states)
 
-    print_matrix(alphabet, final_states, init_states,
-                 term_states, transition_off)
+    print_matrix(alphabet, final_states, init_states, term_states, transition_off)
 
 
 def recursive_minimize_v2(Dict, transitions, alphabet):
