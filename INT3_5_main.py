@@ -92,10 +92,11 @@ if __name__ == '__main__':
                 print_progressively("NO !")
                 print("\n======== DETERMINIZATION")
 
-                local_transition, local_states, local_initial, local_final = determinisation(alphabet, states, initial,
+                local_alphabet, local_transition, local_states, local_initial, local_final = determinisation(alphabet, states, initial,
                                                                                              final, list_transitions)
+                print(local_alphabet)
                 print("There is the deterministic automaton : \n")
-                print_matrix(alphabet, local_states, local_initial,
+                print_matrix(local_alphabet, local_states, local_initial,
                              local_final, local_transition)
                 input("\nNext step : Completion !\nClick on anything to continue\n")
 
@@ -104,13 +105,13 @@ if __name__ == '__main__':
                 print("\nIs your automaton complete ? \n -> ", end="")
 
                 # COMPLETION
-                if is_complete(alphabet, local_states, local_transition):
+                if is_complete(local_alphabet, local_states, local_transition):
                     print_progressively("yes !")
                     input(
                         "\nNext step : Complementary. \nClick on anything to continue …\n")
                     print(
                         "\n==================== COMPLEMENT PART ====================\n")
-                    complement(alphabet, local_states, local_initial,
+                    complement(local_alphabet, local_states, local_initial,
                                local_final, local_transition)
 
                     input(
@@ -122,10 +123,10 @@ if __name__ == '__main__':
                         "\n==================== COMPLETION PART ====================\n")
 
                     local_transition, local_states = completion(
-                        alphabet, local_states, local_transition)
+                        local_alphabet, local_states, local_transition)
 
                     print("There is your complete deterministic automaton : \n")
-                    print_matrix(alphabet, local_states,
+                    print_matrix(local_alphabet, local_states,
                                  local_initial, local_final, local_transition)
 
                     input(
@@ -134,7 +135,7 @@ if __name__ == '__main__':
                         "\n==================== COMPLEMENT PART ====================\n")
                     print("There is the complement automaton : \n")
 
-                    complement(alphabet, local_states, local_initial,
+                    complement(local_alphabet, local_states, local_initial,
                                local_final, local_transition)
 
                     input(

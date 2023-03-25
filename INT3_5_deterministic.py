@@ -121,7 +121,7 @@ def determinisation(alphabet, states, initial, final, transitions):
 
         final = new_temp_term
         transitions = temp_new_transitions
-        
+
 
     etats_initiaux_string = ""
     for etat in initial:
@@ -174,6 +174,11 @@ def determinisation(alphabet, states, initial, final, transitions):
         for j in states:
             if j in final and states not in new_finals:                                             # We check if a new state has an old final.
                 new_finals.append(states)
+    
+    new_alphabet=[]
+    for letter in alphabet : 
+        if letter != "ε":
+            new_alphabet.append(letter)
 
     # le premier state est celui qui sera inital
-    return (new_transitions, new_states_off, new_states_off[0], new_finals)
+    return (new_alphabet, new_transitions, new_states_off, new_states_off[0], new_finals)
