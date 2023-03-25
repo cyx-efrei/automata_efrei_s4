@@ -95,19 +95,23 @@ def determinisation(alphabet, states, initial, final, transitions):
         # SUPP LES EPSILONS
         for transition in transitions:
             if "ε" in transition:
-                #print(transition)
+                #print("on fait ça :", transition)
+                transition_split = transition.split(',')
                 for transition2 in transitions:
                     new_line_transition = ""
-                    #print("trans2 : ",transition, transition[-1], transition2[0])
-                    if transition[-1] == transition2[0]:
-                        new_line_transition += transition[0] + transition2[1:]
+                    transition2_split = transition2.split(',')
+                    #print("trans2 : ",transition, transition_split[2], transition2_split[0])
+                    if transition_split[2] == transition2_split[0]:
+                        new_line_transition += transition_split[0] + transition2[1:]
+                        #print(new_line_transition)
                         if "ε" in new_line_transition:
+                            #print(new_line_transition)
                             transitions.append(new_line_transition)
                         else : 
                             temp_new_transitions.append(new_line_transition)
                         #print("final line", new_line_transition)
-                    elif transition[-1] in final and transition[0] not in new_temp_term:
-                        new_temp_term.append(transition[0])
+                    elif transition_split[2] in final and transition_split[0] not in new_temp_term:
+                        new_temp_term.append(transition_split[0])
             
             else : 
                 temp_new_transitions.append(transition)
@@ -117,9 +121,7 @@ def determinisation(alphabet, states, initial, final, transitions):
 
         final = new_temp_term
         transitions = temp_new_transitions
-
-                    
-
+        
 
     etats_initiaux_string = ""
     for etat in initial:
@@ -131,9 +133,10 @@ def determinisation(alphabet, states, initial, final, transitions):
     for lettre in alphabet:                                                     # We create the states of transitions. Like if we have transition in a to 1 and 2, we get there 12
         resultat_transition = ""
         for transition in transitions:
-            if lettre == transition[2] and transition[0] in initial:
-                if transition[4] not in resultat_transition:
-                    resultat_transition += transition[4]                        # Here, we combine all letters
+            transition_split = transition.split(",")    
+            if lettre == transition_split[1] and transition_split[0] in initial:    
+                if transition_split[2] not in resultat_transition:
+                    resultat_transition += transition_split[2]                        # Here, we combine all letters
         if resultat_transition != "":
             new_transitions_base.append(resultat_transition)                    # List of all new states
             new_transitions.append(etats_initiaux_string + "," +
@@ -145,9 +148,10 @@ def determinisation(alphabet, states, initial, final, transitions):
             resultat_transition = ""                                            # on balaye les lettres
             for state in new_states:
                 for transition in transitions:
-                    if lettre == transition[2] and transition[0] == state:
-                        if transition[4] not in resultat_transition:
-                            resultat_transition += transition[4]
+                    transition_split = transition.split(",")
+                    if lettre == transition_split[1] and transition_split[0] == state:
+                        if transition_split[2] not in resultat_transition:
+                            resultat_transition += transition_split[2]
             if resultat_transition not in new_transitions_base and resultat_transition != "":       # We check if we have a new state in the table (like the method seen in class)
                 new_transitions_base.append(resultat_transition)                                    # If a new state, we add it to the loop
 
@@ -161,6 +165,8 @@ def determinisation(alphabet, states, initial, final, transitions):
                 if new_transition[0] not in new_states_off:                                         # Now, we regroup all states
                     new_states_off.append(new_transition[0])
 
+
+    # ON AJOUTE LES TERM FINAUX TROUVÉS AU DÉBUT QD ON A UN EPSILON
     # RESULTAT DES NOUVELLES TRANSITIONS
 
     new_finals = []
