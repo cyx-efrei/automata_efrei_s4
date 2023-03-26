@@ -6,7 +6,7 @@ def word_recognition(alphabet, states, initial, final, transitions, word):
     if not is_deterministic(alphabet, states, initial, transitions):
         alphabet, transitions,  states, initial, final  = determinisation(alphabet, states, initial, final, transitions)
 
-    if word == "" and initial in final:
+    if word == "" and initial[0] in final:
         print("\nThe empty word is succefully recognize")
 
     order_states = []
