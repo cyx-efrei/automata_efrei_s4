@@ -1,8 +1,10 @@
+
+
   ________  ________   ___   __  ____________              __  ______  __________  _   __
  /_  __/ / / / ____/  /   | / / / /_  __/ __ \            /  |/  /   |/_  __/ __ \/ | / /
-  / / / /_/ / __/    / /| |/ / / / / / / / / /  ______   / /|_/ / /| | / / / / / /  |/ /
- / / / __  / /___   / ___ / /_/ / / / / /_/ /  /_____/  / /  / / ___ |/ / / /_/ / /|  /
-/_/ /_/ /_/_____/  /_/  |_\____/ /_/  \____/           /_/  /_/_/  |_/_/  \____/_/ |_/
+  / / / /_/ / __/    / /| |/ / / / / / / / / /  ______   / /|_/ / /| | / / / / / /  |/ / 
+ / / / __  / /___   / ___ / /_/ / / / / /_/ /  /_____/  / /  / / ___ |/ / / /_/ / /|  /  
+/_/ /_/ /_/_____/  /_/  |_\____/ /_/  \____/           /_/  /_/_/  |_/_/  \____/_/ |_/   
 
 By Cyril Nakha, Ali Nahas , Nathan Krief , Paul Hu
 
@@ -24,7 +26,7 @@ Please, enter your number of automaton to test :
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 1
 
 
@@ -56,7 +58,7 @@ Click on anything to return to the menu
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 2
 
 
@@ -64,7 +66,7 @@ Your choice :
 
 ==================== DETERMINISTIC ====================
 
-     - There is your default automaton :
+     - There is your default automaton : 
 
 
 +------+--------+--------------+--------------+--------------+--------------+
@@ -76,12 +78,12 @@ Your choice :
 |      |   3    |     ---      |     ---      |      0       |     ---      |
 +------+--------+--------------+--------------+--------------+--------------+
 
-Is your automaton determinized ?
+Is your automaton determinized ? 
  -> NO !
 
 
 ======== DETERMINIZATION
-There is the deterministic automaton :
+There is the deterministic automaton : 
 
 +------+--------+--------------+--------------+--------------+--------------+
 |      | STATES | Transition a | Transition b | Transition c | Transition d |
@@ -98,7 +100,7 @@ Click on anything to continue
 
 ==================== COMPLETION PART ====================
 
-Is your automaton complete ?
+Is your automaton complete ? 
  -> NO !
 
 
@@ -109,22 +111,22 @@ Click on anything to continue
 
 ======= EXPLANATION
 
-This automaton is not complete because :
+This automaton is not complete because : 
 
-The state 1 doesn't have :
+The state 1 doesn't have : 
 -    Transition of b
 -    Transition of c
 -    Transition of d
 
-The state 203 doesn't have :
+The state 203 doesn't have : 
 -    Transition of a
 
-The state 3 doesn't have :
+The state 3 doesn't have : 
 -    Transition of a
 -    Transition of b
 -    Transition of d
 
-The state 0 doesn't have :
+The state 0 doesn't have : 
 -    Transition of a
 -    Transition of b
 -    Transition of c
@@ -135,7 +137,7 @@ Click on anything to continue
 
 ==================== COMPLETION PART ====================
 
-There is your complete deterministic automaton :
+There is your complete deterministic automaton : 
 
 +------+--------+--------------+--------------+--------------+--------------+
 |      | STATES | Transition a | Transition b | Transition c | Transition d |
@@ -147,13 +149,13 @@ There is your complete deterministic automaton :
 |      |   P    |      P       |      P       |      P       |      P       |
 +------+--------+--------------+--------------+--------------+--------------+
 
-Next step : Complementary.
+Next step : Complementary. 
 Click on anything to continue …
 
 
 ==================== COMPLEMENT PART ====================
 
-There is the complement automaton :
+There is the complement automaton : 
 
 +-----+--------+--------------+--------------+--------------+--------------+
 |     | STATES | Transition a | Transition b | Transition c | Transition d |
@@ -165,7 +167,7 @@ There is the complement automaton :
 | <-- |   P    |      P       |      P       |      P       |      P       |
 +-----+--------+--------------+--------------+--------------+--------------+
 
-Return to the MAIN MENU.
+Return to the MAIN MENU. 
 Click on anything to continue …
 
 
@@ -181,7 +183,7 @@ Click on anything to continue …
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 3
 
 
@@ -190,11 +192,29 @@ Your choice :
 ==================== STANDARDIZATION ====================
 
 
-Is your automaton standardize ?
- -> yes !
+Is your automaton standardize ? 
+ -> NO !
 
 
-Return to the MAIN MENU.
+Explanation : There is a transition to the initial state so the automaton is not standard !
+
+Next step : Standardization !
+Click on anything to continue
+
+
+There is the standardize automaton
+
++-----+--------+--------------+--------------+--------------+--------------+
+|     | STATES | Transition a | Transition b | Transition c | Transition d |
++-----+--------+--------------+--------------+--------------+--------------+
+|     |   0    |     ---      |     ---      |     ---      |      1       |
+| <-- |   1    |    2,0,3     |     ---      |     ---      |     ---      |
+|     |   2    |     ---      |      3       |     ---      |     ---      |
+|     |   3    |     ---      |     ---      |      0       |     ---      |
+| --> |   i    |    2,0,3     |     ---      |     ---      |     ---      |
++-----+--------+--------------+--------------+--------------+--------------+
+
+Return to the MAIN MENU. 
 Click on anything to continue …
 
 
@@ -210,7 +230,7 @@ Click on anything to continue …
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 4
 
 
@@ -218,21 +238,29 @@ Your choice :
 
 ==================== Word Recognation ====================
 
+Do you want to recognize a word on the automate or its complementary ?
+ 1. This automate
+ 2. The complementary
+
+ -> 1
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
- -> ab
+ -> abcd
 
-- A transition with the character b has been found from 2 to 3
+- A transition with the character b has been found from 203 to 3
+- A transition with the character c has been found from 3 to 0
+- A transition with the character d has been found from 0 to 1
 
-The last state to complete the word " ab " isn't a terminal so it's not recognize ! (Last state : 3)
+The word abcd is succefully recognize
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
- -> a 
+ -> aaaaa
 
 
-The last state to complete the word " a " isn't a terminal so it's not recognize ! (Last state : 2)
+No transition with the character a has not been found
+Sorry, the word " aaaaa "is not recognize by this automaton
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
@@ -241,43 +269,11 @@ Enter the word to recognize :
 The first character e has not been found
 Sorry, the word " end "is not recognize by this automaton
 
-==================== Word Recognation ====================
-
-
-Enter "end" to stop the loop.
-Enter the word to recognize :
- -> abcd
-
-- A transition with the character b has been found from 2 to 3
-- A transition with the character c has been found from 3 to 0
-- A transition with the character d has been found from 0 to 1
-
-The word abcd is succefully recognize
-
-Enter "end" to stop the loop.
-Enter the word to recognize :
- -> ab
-
-- A transition with the character b has been found from 2 to 3
-
-The last state to complete the word " ab " isn't a terminal so it's not recognize ! (Last state : 3)
-
-Enter "end" to stop the loop.
-Enter the word to recognize :
- -> a 
-
-
-The last state to complete the word " a " isn't a terminal so it's not recognize ! (Last state : 2)
-
-Enter "end" to stop the loop.
-Enter the word to recognize :
- -> end
-
-The first character e has not been found
-Sorry, the word " end "is not recognize by this automaton 
-
-Return to the MAIN MENU.
+Return to the MAIN MENU. 
 Click on anything to continue …
+
+
+
 
 
 ==================== MAIN MENU ====================
@@ -289,7 +285,7 @@ Click on anything to continue …
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 6
 
 
