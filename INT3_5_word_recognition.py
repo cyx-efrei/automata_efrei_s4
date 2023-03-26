@@ -1,19 +1,25 @@
-from INT3_5_deterministic import is_deterministic
+from INT3_5_deterministic import is_deterministic, determinisation
 
 
-def word_recognition(initial, final, transitions, word):
+def word_recognition(alphabet, states, initial, final, transitions, word):
     print()
+    if not is_deterministic(alphabet, states, initial, transitions):
+        alphabet, transitions,  states, initial, final  = determinisation(alphabet, states, initial, final, transitions)
+
+    print(initial, transitions, final)
 
     order_states = []
     for i in range(0, len(word)):
         found = 0
 
+        transition_split = []
         # TO FIND THE FIRST LETTER OF THE WORD
         if i == 0:
             for transition in transitions:
-                if transition[0] in initial and transition[2] == word[0]:
-                    order_states.append(transition[0])
-                    order_states.append(transition[-1])
+                transition_split = transition.split(',')
+                if transition_split[0] in initial and transition_split[1] == word[0]:
+                    order_states.append(transition_split[0])
+                    order_states.append(transition_split[2])
                     found = 1
                     break
 
@@ -27,10 +33,11 @@ def word_recognition(initial, final, transitions, word):
         # TO FIND A LETTER OF THE WORD
         else:
             for transition in transitions:
-                if transition[0] == order_states[-1] and transition[2] == word[i]:
+                transition_split = transition.split(',')
+                if transition_split[0] == order_states[-1] and transition_split[1] == word[i]:
                     print("- A transition with the character", word[i],
-                          "has been found from", transition[0], "to", transition[-1])
-                    order_states.append(transition[-1])
+                          "has been found from", transition_split[0], "to", transition_split[2])
+                    order_states.append(transition_split[2])
                     found = 1
                     break
 
