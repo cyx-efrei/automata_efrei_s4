@@ -37,9 +37,10 @@ def choose_file():
             break
     file_name = int(file_name)
     while file_name < 1 or file_name > 44:
+        print("\nPlease redo :")
         file_name = int(input("-> "))
         if (file_name < 1 or file_name > 44):
-            print("\nPlease redo :")            
+            continue
 
     return "./INT3_5_automate/INT3_5_" + str(file_name) + ".txt"
 
