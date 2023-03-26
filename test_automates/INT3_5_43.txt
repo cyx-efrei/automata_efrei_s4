@@ -25,7 +25,7 @@ Please, enter your number of automaton to test :
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 1
 
 
@@ -56,7 +56,7 @@ Click on anything to return to the menu
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 2
 
 
@@ -64,7 +64,7 @@ Your choice :
 
 ==================== DETERMINISTIC ====================
 
-     - There is your default automaton :
+     - There is your default automaton : 
 
 
 +-----+--------+--------------+--------------+
@@ -75,12 +75,12 @@ Your choice :
 | <-- |   2    |      2       |      2       |
 +-----+--------+--------------+--------------+
 
-Is your automaton determinized ?
+Is your automaton determinized ? 
  -> NO !
 
 
 ======== DETERMINIZATION
-There is the deterministic automaton :
+There is the deterministic automaton : 
 
 +-----+--------+--------------+--------------+
 |     | STATES | Transition a | Transition b |
@@ -97,11 +97,11 @@ Click on anything to continue
 
 ==================== COMPLETION PART ====================
 
-Is your automaton complete ?
+Is your automaton complete ? 
  -> yes !
 
 
-Next step : Complementary.
+Next step : Complementary. 
 Click on anything to continue …
 
 
@@ -116,7 +116,7 @@ Click on anything to continue …
 |      |  012   |      02      |     012      |
 +------+--------+--------------+--------------+
 
-Return to the MAIN MENU.
+Return to the MAIN MENU. 
 Click on anything to continue …
 
 
@@ -132,7 +132,7 @@ Click on anything to continue …
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 3
 
 
@@ -141,7 +141,7 @@ Your choice :
 ==================== STANDARDIZATION ====================
 
 
-Is your automaton standardize ?
+Is your automaton standardize ? 
  -> NO !
 
 
@@ -162,7 +162,7 @@ There is the standardize automaton
 | --> |   i    |      0       |     0,1      |
 +-----+--------+--------------+--------------+
 
-Return to the MAIN MENU.
+Return to the MAIN MENU. 
 Click on anything to continue …
 
 
@@ -178,7 +178,7 @@ Click on anything to continue …
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 4
 
 
@@ -186,49 +186,35 @@ Your choice :
 
 ==================== Word Recognation ====================
 
+Do you want to recognize a word on the automate or its complementary ?
+ 1. This automate
+ 2. The complementary
+
+ -> 1
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
- -> ba
+ -> ababababbb
 
-- A transition with the character a has been found from 0 to 0
+- A transition with the character b has been found from 0 to 01
+- A transition with the character a has been found from 01 to 02
+- A transition with the character b has been found from 02 to 012
+- A transition with the character a has been found from 012 to 02
+- A transition with the character b has been found from 02 to 012
+- A transition with the character a has been found from 012 to 02
+- A transition with the character b has been found from 02 to 012
+- A transition with the character b has been found from 012 to 012
+- A transition with the character b has been found from 012 to 012
 
-The last state to complete the word " ba " isn't a terminal so it's not recognize ! (Last state : 0)
-
-Enter "end" to stop the loop.
-Enter the word to recognize :
- -> aba
-
-- A transition with the character b has been found from 0 to 0
-- A transition with the character a has been found from 0 to 0
-
-The last state to complete the word " aba " isn't a terminal so it's not recognize ! (Last state : 0)
-
-Enter "end" to stop the loop.
-Enter the word to recognize :
- -> ab
-
-- A transition with the character b has been found from 0 to 0
-
-The last state to complete the word " ab " isn't a terminal so it's not recognize ! (Last state : 0)
+The word ababababbb is succefully recognize
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
- -> baa
+ -> aa
 
 - A transition with the character a has been found from 0 to 0
-- A transition with the character a has been found from 0 to 0
 
-The last state to complete the word " baa " isn't a terminal so it's not recognize ! (Last state : 0)
-
-Enter "end" to stop the loop.
-Enter the word to recognize :
- -> aba
-
-- A transition with the character b has been found from 0 to 0
-- A transition with the character a has been found from 0 to 0
-
-The last state to complete the word " aba " isn't a terminal so it's not recognize ! (Last state : 0)
+The last state to complete the word " aa " isn't a terminal so it's not recognize ! (Last state : 0)
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
@@ -237,7 +223,7 @@ Enter the word to recognize :
 The first character e has not been found
 Sorry, the word " end "is not recognize by this automaton
 
-Return to the MAIN MENU.
+Return to the MAIN MENU. 
 Click on anything to continue …
 
 
@@ -253,7 +239,7 @@ Click on anything to continue …
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 6
 
 
