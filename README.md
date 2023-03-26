@@ -1,7 +1,7 @@
 
 # Python automate
 
-Pour visualiser correctement ce fichier, merci de l'ouvrir sur le repo git associé : 
+Pour visualiser correctement ce fichier, merci de l'ouvrir sur le repo git associé : https://github.com/Cyrilnkl/automata_efrei_s4.git
 
 Project of S4 in Finite Automata, Efrei.
 
