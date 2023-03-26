@@ -47,6 +47,7 @@ Click on anything to return to the menu
 
 
 
+
 ==================== MAIN MENU ====================
 
 1. TAP 1 - Display the table of the automate
@@ -57,6 +58,8 @@ Click on anything to return to the menu
 6. TAP 6 - Quit
 
 Your choice :
+ ->
+Please redo:
  -> 2
 
 
@@ -186,49 +189,55 @@ Your choice :
 
 ==================== Word Recognation ====================
 
+Do you want to recognize a word on the automate or its complementary ?
+ 1. This automate
+ 2. The complementary
+
+ -> 1
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
- -> ba
+ -> ababba
 
-- A transition with the character a has been found from 0 to 0
+- A transition with the character b has been found from 0 to 01
+- A transition with the character a has been found from 01 to 02
+- A transition with the character b has been found from 02 to 012
+- A transition with the character b has been found from 012 to 012
+- A transition with the character a has been found from 012 to 02
 
-The last state to complete the word " ba " isn't a terminal so it's not recognize ! (Last state : 0)
-
-Enter "end" to stop the loop.
-Enter the word to recognize :
- -> aba
-
-- A transition with the character b has been found from 0 to 0
-- A transition with the character a has been found from 0 to 0
-
-The last state to complete the word " aba " isn't a terminal so it's not recognize ! (Last state : 0)
+The word ababba is succefully recognize
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
- -> ab
+ -> aaabbabbaba
 
-- A transition with the character b has been found from 0 to 0
+- A transition with the character a has been found from 0 to 0
+- A transition with the character a has been found from 0 to 0
+- A transition with the character b has been found from 0 to 01
+- A transition with the character b has been found from 01 to 01
+- A transition with the character a has been found from 01 to 02
+- A transition with the character b has been found from 02 to 012
+- A transition with the character b has been found from 012 to 012
+- A transition with the character a has been found from 012 to 02
+- A transition with the character b has been found from 02 to 012
+- A transition with the character a has been found from 012 to 02
 
-The last state to complete the word " ab " isn't a terminal so it's not recognize ! (Last state : 0)
+The word aaabbabbaba is succefully recognize
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
- -> baa
+ -> abbbbbbbd
 
-- A transition with the character a has been found from 0 to 0
-- A transition with the character a has been found from 0 to 0
+- A transition with the character b has been found from 0 to 01
+- A transition with the character b has been found from 01 to 01
+- A transition with the character b has been found from 01 to 01
+- A transition with the character b has been found from 01 to 01
+- A transition with the character b has been found from 01 to 01
+- A transition with the character b has been found from 01 to 01
+- A transition with the character b has been found from 01 to 01
 
-The last state to complete the word " baa " isn't a terminal so it's not recognize ! (Last state : 0)
-
-Enter "end" to stop the loop.
-Enter the word to recognize :
- -> aba
-
-- A transition with the character b has been found from 0 to 0
-- A transition with the character a has been found from 0 to 0
-
-The last state to complete the word " aba " isn't a terminal so it's not recognize ! (Last state : 0)
+No transition with the character d has not been found
+Sorry, the word " abbbbbbbd "is not recognize by this automaton
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
