@@ -1,13 +1,16 @@
 from INT3_5_deterministic import is_deterministic, determinisation
+from INT3_5_complementary import complement
 
 
-def word_recognition(alphabet, states, initial, final, transitions, word):
+def word_recognition(alphabet, states, initial, final, transitions, word, choice):
     print()
     if not is_deterministic(alphabet, states, initial, transitions):
         alphabet, transitions,  states, initial, final  = determinisation(alphabet, states, initial, final, transitions)
 
-    if word == "" and initial[0] in final:
-        print("\nThe empty word is succefully recognize")
+
+    if choice == '2':
+        final = complement(alphabet, states, initial, final, transitions, 1)
+
 
     order_states = []
     for i in range(0, len(word)):
