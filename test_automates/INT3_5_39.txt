@@ -25,7 +25,7 @@ Please, enter your number of automaton to test :
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 1
 
 
@@ -57,7 +57,7 @@ Click on anything to return to the menu
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 2
 
 
@@ -65,7 +65,7 @@ Your choice :
 
 ==================== DETERMINISTIC ====================
 
-     - There is your default automaton :
+     - There is your default automaton : 
 
 
 +------+--------+--------------+--------------+
@@ -77,7 +77,7 @@ Your choice :
 | -->  |   3    |     1,2      |     ---      |
 +------+--------+--------------+--------------+
 
-Is your automaton determinized ?
+Is your automaton determinized ? 
  -> NO !
 
 
@@ -103,13 +103,13 @@ Click on anything to continue
 
 ==================== COMPLETION PART ====================
 
-Is your automaton complete ?
- -> yes !
+Is your automaton complete ? 
+ -> ye
+s !
 
 
-Next step : Complementary.
+Next step : Complementary. 
 Click on anything to continue …
-
 
 ==================== COMPLEMENT PART ====================
 
@@ -126,7 +126,7 @@ Click on anything to continue …
 | -->  |   01   |      1       |      2       |
 +------+--------+--------------+--------------+
 
-Return to the MAIN MENU.
+Return to the MAIN MENU. 
 Click on anything to continue …
 
 
@@ -142,7 +142,7 @@ Click on anything to continue …
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 3
 
 
@@ -151,7 +151,7 @@ Your choice :
 ==================== STANDARDIZATION ====================
 
 
-Is your automaton standardize ?
+Is your automaton standardize ? 
  -> NO !
 
 
@@ -173,7 +173,7 @@ There is the standardize automaton
 | <--> |   i    |     1,2      |      2       |
 +------+--------+--------------+--------------+
 
-Return to the MAIN MENU.
+Return to the MAIN MENU. 
 Click on anything to continue …
 
 
@@ -189,7 +189,7 @@ Click on anything to continue …
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 4
 
 
@@ -197,20 +197,49 @@ Your choice :
 
 ==================== Word Recognation ====================
 
+Do you want to recognize a word on the automate or its complementary ?
+ 1. This automate
+ 2. The complementary
+
+ -> 1
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
- -> a
+ -> ab
 
+- A transition with the character b has been found from 12 to 21
 
-The word a is succefully recognize
+The word ab is succefully recognize
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
- -> c
+ -> abbbccdd
 
-The first character c has not been found
-Sorry, the word " c "is not recognize by this automaton
+- A transition with the character b has been found from 12 to 21
+- A transition with the character b has been found from 21 to 12
+- A transition with the character b has been found from 12 to 21
+
+No transition with the character c has not been found
+Sorry, the word " abbbccdd "is not recognize by this automaton
+
+Enter "end" to stop the loop.
+Enter the word to recognize :
+ -> abcd
+
+- A transition with the character b has been found from 12 to 21
+
+No transition with the character c has not been found
+Sorry, the word " abcd "is not recognize by this automaton
+
+Enter "end" to stop the loop.
+Enter the word to recognize :
+ -> abba
+
+- A transition with the character b has been found from 12 to 21
+- A transition with the character b has been found from 21 to 12
+- A transition with the character a has been found from 12 to 10
+
+The word abba is succefully recognize
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
@@ -219,7 +248,7 @@ Enter the word to recognize :
 The first character e has not been found
 Sorry, the word " end "is not recognize by this automaton
 
-Return to the MAIN MENU.
+Return to the MAIN MENU. 
 Click on anything to continue …
 
 
@@ -235,7 +264,7 @@ Click on anything to continue …
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 6
 
 
