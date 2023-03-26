@@ -44,7 +44,7 @@ Your choice :
 +-----+--------+--------------+
 
 Click on anything to return to the menu
-
+2
 
 
 
@@ -90,12 +90,12 @@ Click on anything to continue
 ==================== COMPLETION PART ====================
 
 Is your automaton complete ?
- -> yes !
+ -> yes
+ !
 
 
 Next step : Complementary.
 Click on anything to continue …
-
 
 ==================== COMPLEMENT PART ====================
 
@@ -126,6 +126,9 @@ Click on anything to continue …
 6. TAP 6 - Quit
 
 Your choice :
+ ->
+
+Please redo:
  -> 3
 
 
@@ -162,6 +165,18 @@ Your choice :
 
 ==================== Word Recognation ====================
 
+Do you want to recognize a word on the automate or its complementary ?
+ 1. This automate
+ 2. The complementary
+
+ -> 1
+
+Enter "end" to stop the loop.
+Enter the word to recognize :
+ -> end
+
+The first character e has not been found
+Sorry, the word " end  "is not recognize by this automaton
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
@@ -173,11 +188,11 @@ The word aa is succefully recognize
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
- -> ab
+ -> aba
 
 
 No transition with the character b has not been found
-Sorry, the word " ab "is not recognize by this automaton
+Sorry, the word " aba "is not recognize by this automaton
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
