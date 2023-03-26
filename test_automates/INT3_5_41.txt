@@ -1,4 +1,5 @@
 
+
   ________  ________   ___   __  ____________              __  ______  __________  _   __
  /_  __/ / / / ____/  /   | / / / /_  __/ __ \            /  |/  /   |/_  __/ __ \/ | / /
   / / / /_/ / __/    / /| |/ / / / / / / / / /  ______   / /|_/ / /| | / / / / / /  |/ / 
@@ -25,7 +26,7 @@ Please, enter your number of automaton to test :
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 1
 
 
@@ -59,10 +60,7 @@ Click on anything to return to the menu
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
- ->
-
-Please redo:
+Your choice : 
  -> 2
 
 
@@ -70,7 +68,7 @@ Please redo:
 
 ==================== DETERMINISTIC ====================
 
-     - There is your default automaton :
+     - There is your default automaton : 
 
 
 +-----+--------+--------------+--------------+
@@ -84,7 +82,7 @@ Please redo:
 |     |   5    |      5       |      5       |
 +-----+--------+--------------+--------------+
 
-Is your automaton determinized ?
+Is your automaton determinized ? 
  -> yes !
 
 
@@ -94,11 +92,11 @@ Click on anything to continue
 
 ==================== COMPLETION PART ====================
 
-Is your automaton complete ?
+Is your automaton complete ? 
  -> yes !
 
 
-Next step : Complementary.
+Next step : Complementary. 
 Click on anything to continue …
 
 
@@ -115,7 +113,7 @@ Click on anything to continue …
 | <--  |   5    |      5       |      5       |
 +------+--------+--------------+--------------+
 
-Return to the MAIN MENU.
+Return to the MAIN MENU. 
 Click on anything to continue …
 
 
@@ -131,7 +129,7 @@ Click on anything to continue …
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 3
 
 
@@ -140,11 +138,11 @@ Your choice :
 ==================== STANDARDIZATION ====================
 
 
-Is your automaton standardize ?
+Is your automaton standardize ? 
  -> yes !
 
 
-Return to the MAIN MENU.
+Return to the MAIN MENU. 
 Click on anything to continue …
 
 
@@ -160,7 +158,7 @@ Click on anything to continue …
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 4
 
 
@@ -168,20 +166,35 @@ Your choice :
 
 ==================== Word Recognation ====================
 
+Do you want to recognize a word on the automate or its complementary ?
+ 1. This automate
+ 2. The complementary
+
+ -> 1
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
- -> a
+ -> end 
 
-
-The word a is succefully recognize
+The first character e has not been found
+Sorry, the word " end  "is not recognize by this automaton
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
- -> c
+ -> ab
 
-The first character c has not been found
-Sorry, the word " c "is not recognize by this automaton
+- A transition with the character b has been found from 1 to 3
+
+The word ab is succefully recognize
+
+Enter "end" to stop the loop.
+Enter the word to recognize :
+ -> abd
+
+- A transition with the character b has been found from 1 to 3
+
+No transition with the character d has not been found
+Sorry, the word " abd "is not recognize by this automaton
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
@@ -190,7 +203,7 @@ Enter the word to recognize :
 The first character e has not been found
 Sorry, the word " end "is not recognize by this automaton
 
-Return to the MAIN MENU.
+Return to the MAIN MENU. 
 Click on anything to continue …
 
 
@@ -206,7 +219,7 @@ Click on anything to continue …
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 6
 
 
