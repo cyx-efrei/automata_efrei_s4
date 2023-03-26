@@ -1,11 +1,284 @@
-A = a,b
-Q = 0,1,2,3,4
-I = 0
-T = 0
-0,a,1
-1,a,2
-1,b,2
-2,a,3
-3,a,4
-3,b,4
-4,a,0
+
+
+
+  ________  ________   ___   __  ____________              __  ______  __________  _   __
+ /_  __/ / / / ____/  /   | / / / /_  __/ __ \            /  |/  /   |/_  __/ __ \/ | / /
+  / / / /_/ / __/    / /| |/ / / / / / / / / /  ______   / /|_/ / /| | / / / / / /  |/ / 
+ / / / __  / /___   / ___ / /_/ / / / / /_/ /  /_____/  / /  / / ___ |/ / / /_/ / /|  /  
+/_/ /_/ /_/_____/  /_/  |_\____/ /_/  \____/           /_/  /_/_/  |_/_/  \____/_/ |_/   
+
+By Cyril Nakha, Ali Nahas , Nathan Krief , Paul Hu
+
+
+
+
+Please, enter your number of automaton to test :
+-> 10
+
+
+
+
+==================== MAIN MENU ====================
+
+1. TAP 1 - Display the table of the automate
+2. TAP 2 - See if it's deterministic    --    Determinise it if not
+3. TAP 3 - See if it's standard         --    Standardize it if not
+4. TAP 4 - Word Recognation
+5. TAP 5 - Change your automaton
+6. TAP 6 - Quit
+
+Your choice : 
+ -> 1
+
+
+
+
+==================== DISPLAY AUTOMATON ====================
+
++------+--------+--------------+--------------+
+|      | STATES | Transition a | Transition b |
++------+--------+--------------+--------------+
+| <--> |   0    |      1       |     ---      |
+|      |   1    |      2       |      2       |
+|      |   2    |      3       |     ---      |
+|      |   3    |      4       |      4       |
+|      |   4    |      0       |     ---      |
++------+--------+--------------+--------------+
+
+Click on anything to return to the menu
+
+
+
+
+
+==================== MAIN MENU ====================
+
+1. TAP 1 - Display the table of the automate
+2. TAP 2 - See if it's deterministic    --    Determinise it if not
+3. TAP 3 - See if it's standard         --    Standardize it if not
+4. TAP 4 - Word Recognation
+5. TAP 5 - Change your automaton
+6. TAP 6 - Quit
+
+Your choice : 
+ -> 2
+
+
+
+
+==================== DETERMINISTIC ====================
+
+     - There is your default automaton : 
+
+
++------+--------+--------------+--------------+
+|      | STATES | Transition a | Transition b |
++------+--------+--------------+--------------+
+| <--> |   0    |      1       |     ---      |
+|      |   1    |      2       |      2       |
+|      |   2    |      3       |     ---      |
+|      |   3    |      4       |      4       |
+|      |   4    |      0       |     ---      |
++------+--------+--------------+--------------+
+
+Is your automaton determinized ? 
+ -> yes !
+
+
+Next step : Completion !
+Click on anything to continue
+
+
+==================== COMPLETION PART ====================
+
+Is your automaton complete ? 
+ -> NO !
+
+
+Next step : Explanation !
+Click on anything to continue
+
+
+
+======= EXPLANATION
+
+This automaton is not complete because : 
+
+The state 0 doesn't have : 
+-    Transition of b
+
+The state 2 doesn't have : 
+-    Transition of b
+
+The state 4 doesn't have : 
+-    Transition of b
+
+Next step : Completion !
+Click on anything to continue
+
+
+==================== COMPLETION PART ====================
+
+There is your complete deterministic automaton : 
+
++------+--------+--------------+--------------+
+|      | STATES | Transition a | Transition b |
++------+--------+--------------+--------------+
+| <--> |   0    |      1       |      P       |
+|      |   1    |      2       |      2       |
+|      |   2    |      3       |      P       |
+|      |   3    |      4       |      4       |
+|      |   4    |      0       |      P       |
+|      |   P    |      P       |      P       |
++------+--------+--------------+--------------+
+
+Next step : Complementary. 
+Click on anything to continue …
+
+
+==================== COMPLEMENT PART ====================
+
+There is the complement automaton : 
+
++-----+--------+--------------+--------------+
+|     | STATES | Transition a | Transition b |
++-----+--------+--------------+--------------+
+| --> |   0    |      1       |      P       |
+| <-- |   1    |      2       |      2       |
+| <-- |   2    |      3       |      P       |
+| <-- |   3    |      4       |      4       |
+| <-- |   4    |      0       |      P       |
+| <-- |   P    |      P       |      P       |
++-----+--------+--------------+--------------+
+
+Return to the MAIN MENU. 
+Click on anything to continue …
+
+
+
+
+
+==================== MAIN MENU ====================
+
+1. TAP 1 - Display the table of the automate
+2. TAP 2 - See if it's deterministic    --    Determinise it if not
+3. TAP 3 - See if it's standard         --    Standardize it if not
+4. TAP 4 - Word Recognation
+5. TAP 5 - Change your automaton
+6. TAP 6 - Quit
+
+Your choice : 
+ -> 3
+
+
+
+
+==================== STANDARDIZATION ====================
+
+
+Is your automaton standardize ? 
+ -> NO !
+
+
+Explanation : There is a transition to the initial state so the automaton is not standard !
+
+Next step : Standardization !
+Click on anything to continue
+
+
+
+There is the standardize automaton
+
++-----+--------+--------------+--------------+
+|     | STATES | Transition a | Transition b |
++-----+--------+--------------+--------------+
+| <-- |   0    |      1       |      P       |
+|     |   1    |      2       |      2       |
+|     |   2    |      3       |      P       |
+|     |   3    |      4       |      4       |
+|     |   4    |      0       |      P       |
+|     |   P    |      P       |      P       |
+| --> |   i    |      1       |      P       |
++-----+--------+--------------+--------------+
+
+Return to the MAIN MENU. 
+Click on anything to continue …
+
+
+
+
+==================== MAIN MENU ====================
+
+1. TAP 1 - Display the table of the automate
+2. TAP 2 - See if it's deterministic    --    Determinise it if not
+3. TAP 3 - See if it's standard         --    Standardize it if not
+4. TAP 4 - Word Recognation
+5. TAP 5 - Change your automaton
+6. TAP 6 - Quit
+
+Your choice : 
+ -> 4
+
+
+
+
+==================== Word Recognation ====================
+
+
+Enter "end" to stop the loop.
+Enter the word to recognize :
+ -> aaaaaaaaaaaa
+
+- A transition with the character a has been found from 1 to 2
+- A transition with the character a has been found from 2 to 3
+- A transition with the character a has been found from 3 to 4
+- A transition with the character a has been found from 4 to 0
+- A transition with the character a has been found from 0 to 1
+- A transition with the character a has been found from 1 to 2
+- A transition with the character a has been found from 2 to 3
+- A transition with the character a has been found from 3 to 4
+- A transition with the character a has been found from 4 to 0
+- A transition with the character a has been found from 0 to 1
+- A transition with the character a has been found from 1 to 2
+
+The last state to complete the word " aaaaaaaaaaaa " isn't a terminal so it's not recognize ! (Last state : 2)
+
+Enter "end" to stop the loop.
+Enter the word to recognize :
+ -> aaaaa
+
+- A transition with the character a has been found from 1 to 2
+- A transition with the character a has been found from 2 to 3
+- A transition with the character a has been found from 3 to 4
+- A transition with the character a has been found from 4 to 0
+
+The word aaaaa is succefully recognize
+
+Enter "end" to stop the loop.
+Enter the word to recognize :
+ -> end
+
+The first character e has not been found
+Sorry, the word " end "is not recognize by this automaton
+
+Return to the MAIN MENU. 
+Click on anything to continue …
+
+
+
+
+
+==================== MAIN MENU ====================
+
+1. TAP 1 - Display the table of the automate
+2. TAP 2 - See if it's deterministic    --    Determinise it if not
+3. TAP 3 - See if it's standard         --    Standardize it if not
+4. TAP 4 - Word Recognation
+5. TAP 5 - Change your automaton
+6. TAP 6 - Quit
+
+Your choice : 
+ -> 6
+
+
+I finished my work for today ! Bye !
