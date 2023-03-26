@@ -143,15 +143,9 @@ if __name__ == '__main__':
 
         # IS STANDARD ?
         elif choice == "3":
-
-            # On reinitialise au cas ou
-            alphabet, states, initial, final, list_transitions = ouverture(file)
-
             print("\n\n\n\n==================== STANDARDIZATION ====================\n")
 
-
             print("\nIs your automaton standardize ? \n -> ", end="")
-
 
             # IF IT IS STANDARD
             if is_standard(initial, list_transitions):
@@ -172,17 +166,12 @@ if __name__ == '__main__':
             print("Do you want to recognize a word on the automate or its complementary ?\n 1. This automate\n 2. The complementary")
             while choice <'1' or choice>'2' :
                 choice = input("\n -> ")
-            if choice == '2':
-                local_final = final
-                final = complement(local_alphabet, local_states, local_initial, local_final, local_transition, 1)
             word = "psp"
             while word != "end":
                 print("\nEnter \"end\" to stop the loop.\nEnter the word to recognize :\n -> ", end="")
                 word = input()
-                word_recognition(alphabet, states, initial, final, list_transitions, word)
+                word_recognition(alphabet, states, initial, final, list_transitions, word, choice)
             input("\nReturn to the MAIN MENU. \nClick on anything to continue …\n")
-            if choice == '2':
-                final = local_final
 
         elif choice == "5":
             print("\n\n")
