@@ -1,5 +1,3 @@
-/Users/ali_nhs/Desktop/new/automata_efrei_s4/venv/bin/python /Users/ali_nhs/Desktop/new/automata_efrei_s4/INT3_5_main.py 
-
 
 
   ________  ________   ___   __  ____________              __  ______  __________  _   __
@@ -85,8 +83,8 @@ Your choice :
 +-----+--------+--------------+--------------+--------------+--------------+
 
 Is your automaton determinized ? 
- -> NO !
-
+ -> NO 
+!
 
 
 ======== DETERMINIZATION
@@ -117,8 +115,6 @@ Click on anything to continue
 
 
 
-
-
 ======= EXPLANATION
 
 This automaton is not complete because : 
@@ -138,6 +134,7 @@ The state 34 doesn't have :
 Next step : Completion !
 Click on anything to continue
 
+
 ==================== COMPLETION PART ====================
 
 There is your complete deterministic automaton : 
@@ -156,6 +153,7 @@ There is your complete deterministic automaton :
 
 Next step : Complementary. 
 Click on anything to continue …
+
 
 ==================== COMPLEMENT PART ====================
 
@@ -180,7 +178,6 @@ Click on anything to continue …
 
 
 
-
 ==================== MAIN MENU ====================
 
 1. TAP 1 - Display the table of the automate
@@ -191,8 +188,6 @@ Click on anything to continue …
 6. TAP 6 - Quit
 
 Your choice : 
- -> 
-Please redo: 
  -> 3
 
 
@@ -249,26 +244,21 @@ Your choice :
 
 ==================== Word Recognation ====================
 
+Do you want to recognize a word on the automate or its complementary ?
+ 1. This automate
+ 2. The complementary
 
-Enter "end" to stop the loop.
-Enter the word to recognize :
- -> abadc
-
-- A transition with the character b has been found from 2 to 2
-
-No transition with the character a has not been found
-Sorry, the word " abadc "is not recognize by this automaton
+ -> 1
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
  -> abcd
 
-- A transition with the character b has been found from 2 to 2
+- A transition with the character b has been found from 21 to 23
+- A transition with the character c has been found from 23 to 34
+- A transition with the character d has been found from 34 to 45
 
-No transition with the character c has not been found
-Sorry, the word " abcd "is not recognize by this automaton
-
-
+The word abcd is succefully recognize
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
