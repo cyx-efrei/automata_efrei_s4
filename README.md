@@ -1,9 +1,11 @@
 
 # Python automate
 
+Pour visualiser correctement ce fichier, merci de l'ouvrir sur le repo git associé : 
+
 Project of S4 in Finite Automata, Efrei.
 
-Écrit en python, ce programme propose plusieurs fonctionnalités :
+Written in python, this program offers several features:
 
 -  Reading a FA
 -  Is the FA deterministic? deterministic and complete? standard?
@@ -29,7 +31,6 @@ Project of S4 in Finite Automata, Efrei.
 |determinization | Construction of a complete deterministic automaton from a non-deterministic automaton FA.| ![Working](https://i.ibb.co/3FntR1c/1.png)|
 |stantardization | Construction of standardize automaton from a non-standardize automaton.| ![Working](https://i.ibb.co/3FntR1c/1.png)|
 |display_matrix| Display the automaton.| ![Working](https://i.ibb.co/3FntR1c/1.png)|
-|TO DEFINE| calculating the equivalent minimal FA.| ![Not-Working](https://i.ibb.co/wWtD8S6/2.png)|
 |word_recognition| Testing word recognition. | ![Working](https://i.ibb.co/3FntR1c/1.png)|
 |complement| Creating an automaton recognizing the complementary language. | ![Working](https://i.ibb.co/3FntR1c/1.png)|
 
