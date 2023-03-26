@@ -172,6 +172,8 @@ def determinisation(alphabet, states, initial, final, transitions):
                 new_transition = transition.split(",")
                 if new_transition[0] not in new_states_off:                                         # Now, we regroup all states
                     new_states_off.append(new_transition[0])
+                if new_transition[2] not in new_states_off:                                        
+                    new_states_off.append(new_transition[2])
 
 
     # ON AJOUTE LES TERM FINAUX TROUVÉS AU DÉBUT QD ON A UN EPSILON
@@ -187,6 +189,9 @@ def determinisation(alphabet, states, initial, final, transitions):
     for letter in alphabet : 
         if letter != "ε":
             new_alphabet.append(letter)
+
+
+    print(new_states_off, "jbjkhvbjh")
 
     # le premier state est celui qui sera inital
     return (new_alphabet, new_transitions, new_states_off, new_states_off[0], new_finals)
