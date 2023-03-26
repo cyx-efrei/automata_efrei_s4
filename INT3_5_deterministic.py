@@ -190,8 +190,5 @@ def determinisation(alphabet, states, initial, final, transitions):
         if letter != "ε":
             new_alphabet.append(letter)
 
-
-    print(new_states_off, "jbjkhvbjh")
-
     # le premier state est celui qui sera inital
     return (new_alphabet, new_transitions, new_states_off, new_states_off[0], new_finals)
