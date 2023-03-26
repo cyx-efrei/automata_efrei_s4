@@ -25,7 +25,7 @@ Please, enter your number of automaton to test :
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 1
 
 
@@ -66,7 +66,7 @@ Click on anything to return to the menu
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 2
 
 
@@ -74,7 +74,7 @@ Your choice :
 
 ==================== DETERMINISTIC ====================
 
-     - There is your default automaton :
+     - There is your default automaton : 
 
 
 +-----+--------+--------------+--------------+--------------+--------------+
@@ -95,12 +95,13 @@ Your choice :
 | <-- |   12   |     ---      |     ---      |     ---      |     ---      |
 +-----+--------+--------------+--------------+--------------+--------------+
 
-Is your automaton determinized ?
- -> NO !
+Is your automaton determinized ? 
+ -> NO 
+!
 
 
 ======== DETERMINIZATION
-There is the deterministic automaton :
+There is the deterministic automaton : 
 
 +-----+--------+--------------+--------------+--------------+
 |     | STATES | Transition a | Transition b | Transition c |
@@ -108,32 +109,37 @@ There is the deterministic automaton :
 | --> |   0    |      38      |     410      |      6       |
 |     |   38   |      8       |     ---      |      6       |
 |     |  410   |      38      |     410      |      6       |
+| <-- |   6    |     ---      |     ---      |     ---      |
 |     |   8    |      8       |     ---      |     ---      |
 +-----+--------+--------------+--------------+--------------+
 
 Next step : Completion !
 Click on anything to continue
 
-
 ==================== COMPLETION PART ====================
 
-Is your automaton complete ?
+Is your automaton complete ? 
  -> NO !
+
 
 
 Next step : Explanation !
 Click on anything to continue
 
 
-
 ======= EXPLANATION
 
-This automaton is not complete because :
+This automaton is not complete because : 
 
-The state 38 doesn't have :
+The state 38 doesn't have : 
 -    Transition of b
 
-The state 8 doesn't have :
+The state 6 doesn't have : 
+-    Transition of a
+-    Transition of b
+-    Transition of c
+
+The state 8 doesn't have : 
 -    Transition of b
 -    Transition of c
 
@@ -143,7 +149,7 @@ Click on anything to continue
 
 ==================== COMPLETION PART ====================
 
-There is your complete deterministic automaton :
+There is your complete deterministic automaton : 
 
 +-----+--------+--------------+--------------+--------------+
 |     | STATES | Transition a | Transition b | Transition c |
@@ -151,17 +157,18 @@ There is your complete deterministic automaton :
 | --> |   0    |      38      |     410      |      6       |
 |     |   38   |      8       |      P       |      6       |
 |     |  410   |      38      |     410      |      6       |
+| <-- |   6    |      P       |      P       |      P       |
 |     |   8    |      8       |      P       |      P       |
 |     |   P    |      P       |      P       |      P       |
 +-----+--------+--------------+--------------+--------------+
 
-Next step : Complementary.
+Next step : Complementary. 
 Click on anything to continue …
 
 
 ==================== COMPLEMENT PART ====================
 
-There is the complement automaton :
+There is the complement automaton : 
 
 +------+--------+--------------+--------------+--------------+
 |      | STATES | Transition a | Transition b | Transition c |
@@ -169,11 +176,12 @@ There is the complement automaton :
 | <--> |   0    |      38      |     410      |      6       |
 | <--  |   38   |      8       |      P       |      6       |
 | <--  |  410   |      38      |     410      |      6       |
+|      |   6    |      P       |      P       |      P       |
 | <--  |   8    |      8       |      P       |      P       |
 | <--  |   P    |      P       |      P       |      P       |
 +------+--------+--------------+--------------+--------------+
 
-Return to the MAIN MENU.
+Return to the MAIN MENU. 
 Click on anything to continue …
 
 
@@ -189,7 +197,7 @@ Click on anything to continue …
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 3
 
 
@@ -198,11 +206,11 @@ Your choice :
 ==================== STANDARDIZATION ====================
 
 
-Is your automaton standardize ?
+Is your automaton standardize ? 
  -> yes !
 
 
-Return to the MAIN MENU.
+Return to the MAIN MENU. 
 Click on anything to continue …
 
 
@@ -218,7 +226,7 @@ Click on anything to continue …
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 4
 
 
@@ -226,13 +234,28 @@ Your choice :
 
 ==================== Word Recognation ====================
 
+Do you want to recognize a word on the automate or its complementary ?
+ 1. This automate
+ 2. The complementary
+
+ -> 1
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
- -> b
+ -> ac
 
-The first character b has not been found
-Sorry, the word " b "is not recognize by this automaton
+- A transition with the character c has been found from 38 to 6
+
+The word ac is succefully recognize
+
+Enter "end" to stop the loop.
+Enter the word to recognize :
+ -> acb
+
+- A transition with the character c has been found from 38 to 6
+
+No transition with the character b has not been found
+Sorry, the word " acb "is not recognize by this automaton
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
@@ -241,7 +264,7 @@ Enter the word to recognize :
 The first character e has not been found
 Sorry, the word " end "is not recognize by this automaton
 
-Return to the MAIN MENU.
+Return to the MAIN MENU. 
 Click on anything to continue …
 
 
@@ -257,7 +280,7 @@ Click on anything to continue …
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 6
 
 
