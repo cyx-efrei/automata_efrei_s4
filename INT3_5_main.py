@@ -143,9 +143,15 @@ if __name__ == '__main__':
 
         # IS STANDARD ?
         elif choice == "3":
+
+            # On reinitialise au cas ou
+            alphabet, states, initial, final, list_transitions = ouverture(file)
+
             print("\n\n\n\n==================== STANDARDIZATION ====================\n")
 
+
             print("\nIs your automaton standardize ? \n -> ", end="")
+
 
             # IF IT IS STANDARD
             if is_standard(initial, list_transitions):
