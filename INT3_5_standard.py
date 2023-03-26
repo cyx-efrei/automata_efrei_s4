@@ -5,7 +5,7 @@ from INT3_5_supp_main import print_progressively
 def is_standard(initial, transitions):
 
     # Vérifier s'il y a un seul état initial
-    if len(initial) == 0:
+    if len(initial) != 0:
         return True
 
     if len(initial) != 1:
@@ -16,8 +16,7 @@ def is_standard(initial, transitions):
     for transition in transitions:                                  # We check if there is a transition to the initial state
         if transition[4] == initial[0]:
             print_progressively("NO !")
-            print(
-                "\nExplanation : There is a transition to the initial state so the automaton is not standard !")
+            print("\nExplanation : There is a transition to the initial state so the automaton is not standard !")
             return False
 
     # Si toutes les conditions sont satisfaites, l'automate est standard
