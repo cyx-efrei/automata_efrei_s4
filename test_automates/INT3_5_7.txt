@@ -1,3 +1,4 @@
+
   ________  ________   ___   __  ____________              __  ______  __________  _   __
  /_  __/ / / / ____/  /   | / / / /_  __/ __ \            /  |/  /   |/_  __/ __ \/ | / /
   / / / /_/ / __/    / /| |/ / / / / / / / / /  ______   / /|_/ / /| | / / / / / /  |/ / 
@@ -135,11 +136,28 @@ Your choice :
 
 
 Is your automaton standardize ? 
- -> yes !
+ -> NO !
 
+
+Explanation : There is a transition to the initial state so the automaton is not standard !
+
+Next step : Standardization !
+Click on anything to continue
+
+
+There is the standardize automaton
+
++------+--------+--------------+
+|      | STATES | Transition a |
++------+--------+--------------+
+|      |   1    |     0,1      |
+| <--  |   0    |     ---      |
+| <--> |   i    |     0,1      |
++------+--------+--------------+
 
 Return to the MAIN MENU. 
 Click on anything to continue …
+
 
 
 
@@ -155,6 +173,8 @@ Click on anything to continue …
 6. TAP 6 - Quit
 
 Your choice : 
+ -> 
+Please redo: 
  -> 4
 
 
@@ -162,42 +182,34 @@ Your choice :
 
 ==================== Word Recognation ====================
 
+Do you want to recognize a word on the automate or its complementary ?
+ 1. This automate
+ 2. The complementary
+
+ -> 1
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
- -> a
+ -> aaaaaaaaa
 
+- A transition with the character a has been found from 01 to 01
+- A transition with the character a has been found from 01 to 01
+- A transition with the character a has been found from 01 to 01
+- A transition with the character a has been found from 01 to 01
+- A transition with the character a has been found from 01 to 01
+- A transition with the character a has been found from 01 to 01
+- A transition with the character a has been found from 01 to 01
+- A transition with the character a has been found from 01 to 01
 
-The word a is succefully recognize
-
-Enter "end" to stop the loop.
-Enter the word to recognize :
- -> aaaaaa
-
-
-No transition with the character a has not been found
-Sorry, the word " aaaaaa "is not recognize by this automaton
-
-Enter "end" to stop the loop.
-Enter the word to recognize :
- -> aaaaaaaaaaaaaa
-
-
-No transition with the character a has not been found
-Sorry, the word " aaaaaaaaaaaaaa "is not recognize by this automaton
+The word aaaaaaaaa is succefully recognize
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
- -> a
+ -> ab
 
 
-The word a is succefully recognize
-
-Enter "end" to stop the loop.
-Enter the word to recognize :
- -> aa
-
-The word aa is succefully recognize
+No transition with the character b has not been found
+Sorry, the word " ab "is not recognize by this automaton
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
