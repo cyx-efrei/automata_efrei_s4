@@ -59,7 +59,7 @@ if __name__ == '__main__':
                     print(
                         "\n==================== COMPLEMENT PART ====================\n")
                     complement(alphabet, states, initial,
-                               final, list_transitions)
+                               final, list_transitions, 0)
 
                     input(
                         "\nReturn to the MAIN MENU. \nClick on anything to continue …\n")
@@ -83,7 +83,7 @@ if __name__ == '__main__':
                     print("There is the complement automaton : \n")
 
                     complement(alphabet, local_states, initial,
-                               final, local_transitions)
+                               final, local_transitions, 0)
 
                     input(
                         "\nReturn to the MAIN MENU. \nClick on anything to continue …\n")
@@ -112,7 +112,7 @@ if __name__ == '__main__':
                     print(
                         "\n==================== COMPLEMENT PART ====================\n")
                     complement(local_alphabet, local_states, local_initial,
-                               local_final, local_transition)
+                               local_final, local_transition, 0)
 
                     input(
                         "\nReturn to the MAIN MENU. \nClick on anything to continue …\n")
@@ -136,7 +136,7 @@ if __name__ == '__main__':
                     print("There is the complement automaton : \n")
 
                     complement(local_alphabet, local_states, local_initial,
-                               local_final, local_transition)
+                               local_final, local_transition, 0)
 
                     input(
                         "\nReturn to the MAIN MENU. \nClick on anything to continue …\n")
@@ -162,12 +162,21 @@ if __name__ == '__main__':
         elif choice == "4":
             print("\n\n\n\n==================== Word Recognation ====================\n")
 
+            choice = 3
+            print("Do you want to recognize a word on the automate or its complementary ?\n 1. This automate\n 2. The complementary")
+            while choice <1 or choice>2 :
+                choice = input("\n -> ")
+            if choice == 2:
+                local_final = final
+                final = complement(local_alphabet, local_states, local_initial, local_final, local_transition, 1)
             word = "psp"
             while word != "end":
                 print("\nEnter \"end\" to stop the loop.\nEnter the word to recognize :\n -> ", end="")
                 word = input()
-                word_recognition(initial, final, list_transitions, word)
+                word_recognition(alphabet, states, initial, final, list_transitions, word)
             input("\nReturn to the MAIN MENU. \nClick on anything to continue …\n")
+            if choice == 2:
+                final = local_final
 
         elif choice == "5":
             print("\n\n")
