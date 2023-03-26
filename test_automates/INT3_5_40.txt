@@ -25,7 +25,7 @@ Please, enter your number of automaton to test :
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 1
 
 
@@ -42,7 +42,7 @@ Your choice :
 +------+--------+--------------+--------------+
 
 Click on anything to return to the menu
-
+`
 
 
 
@@ -56,7 +56,7 @@ Click on anything to return to the menu
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 2
 
 
@@ -64,7 +64,7 @@ Your choice :
 
 ==================== DETERMINISTIC ====================
 
-     - There is your default automaton :
+     - There is your default automaton : 
 
 
 +------+--------+--------------+--------------+
@@ -75,12 +75,12 @@ Your choice :
 | <--  |   2    |      0       |     ---      |
 +------+--------+--------------+--------------+
 
-Is your automaton determinized ?
+Is your automaton determinized ? 
  -> NO !
 
 
 ======== DETERMINIZATION
-There is the deterministic automaton :
+There is the deterministic automaton : 
 
 +------+--------+--------------+--------------+
 |      | STATES | Transition a | Transition b |
@@ -98,7 +98,7 @@ Click on anything to continue
 
 ==================== COMPLETION PART ====================
 
-Is your automaton complete ?
+Is your automaton complete ? 
  -> NO !
 
 
@@ -109,12 +109,12 @@ Click on anything to continue
 
 ======= EXPLANATION
 
-This automaton is not complete because :
+This automaton is not complete because : 
 
-The state 0 doesn't have :
+The state 0 doesn't have : 
 -    Transition of a
 
-The state 2 doesn't have :
+The state 2 doesn't have : 
 -    Transition of b
 
 Next step : Completion !
@@ -123,7 +123,7 @@ Click on anything to continue
 
 ==================== COMPLETION PART ====================
 
-There is your complete deterministic automaton :
+There is your complete deterministic automaton : 
 
 +------+--------+--------------+--------------+
 |      | STATES | Transition a | Transition b |
@@ -136,13 +136,13 @@ There is your complete deterministic automaton :
 |      |   P    |      P       |      P       |
 +------+--------+--------------+--------------+
 
-Next step : Complementary.
+Next step : Complementary. 
 Click on anything to continue …
 
 
 ==================== COMPLEMENT PART ====================
 
-There is the complement automaton :
+There is the complement automaton : 
 
 +-----+--------+--------------+--------------+
 |     | STATES | Transition a | Transition b |
@@ -155,7 +155,7 @@ There is the complement automaton :
 | <-- |   P    |      P       |      P       |
 +-----+--------+--------------+--------------+
 
-Return to the MAIN MENU.
+Return to the MAIN MENU. 
 Click on anything to continue …
 
 
@@ -171,7 +171,7 @@ Click on anything to continue …
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 3
 
 
@@ -180,7 +180,7 @@ Your choice :
 ==================== STANDARDIZATION ====================
 
 
-Is your automaton standardize ?
+Is your automaton standardize ? 
  -> NO !
 
 
@@ -201,7 +201,7 @@ There is the standardize automaton
 | <--> |   i    |     0,2      |     1,2      |
 +------+--------+--------------+--------------+
 
-Return to the MAIN MENU.
+Return to the MAIN MENU. 
 Click on anything to continue …
 
 
@@ -217,7 +217,7 @@ Click on anything to continue …
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 4
 
 
@@ -225,6 +225,11 @@ Your choice :
 
 ==================== Word Recognation ====================
 
+Do you want to recognize a word on the automate or its complementary ?
+ 1. This automate
+ 2. The complementary
+
+ -> 1
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
@@ -235,11 +240,12 @@ The word a is succefully recognize
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
- -> aa
+ -> abcd
 
+- A transition with the character b has been found from 02 to 12
 
-No transition with the character a has not been found
-Sorry, the word " aa "is not recognize by this automaton
+No transition with the character c has not been found
+Sorry, the word " abcd "is not recognize by this automaton
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
@@ -248,7 +254,7 @@ Enter the word to recognize :
 The first character e has not been found
 Sorry, the word " end "is not recognize by this automaton
 
-Return to the MAIN MENU.
+Return to the MAIN MENU. 
 Click on anything to continue …
 
 
@@ -264,7 +270,7 @@ Click on anything to continue …
 5. TAP 5 - Change your automaton
 6. TAP 6 - Quit
 
-Your choice :
+Your choice : 
  -> 6
 
 
