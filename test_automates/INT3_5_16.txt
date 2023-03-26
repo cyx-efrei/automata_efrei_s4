@@ -1,4 +1,3 @@
-
   ________  ________   ___   __  ____________              __  ______  __________  _   __
  /_  __/ / / / ____/  /   | / / / /_  __/ __ \            /  |/  /   |/_  __/ __ \/ | / /
   / / / /_/ / __/    / /| |/ / / / / / / / / /  ______   / /|_/ / /| | / / / / / /  |/ / 
@@ -49,7 +48,6 @@ Click on anything to return to the menu
 
 
 
-
 ==================== MAIN MENU ====================
 
 1. TAP 1 - Display the table of the automate
@@ -60,8 +58,6 @@ Click on anything to return to the menu
 6. TAP 6 - Quit
 
 Your choice : 
- -> 
-Please redo: 
  -> 2
 
 
@@ -243,32 +239,41 @@ Click on anything to continue …
 6. TAP 6 - Quit
 
 Your choice : 
- -> 
-4
+ -> 4`
 
 Please redo: 
- -> 
+ -> 4
+
 
 
 
 ==================== Word Recognation ====================
 
+Do you want to recognize a word on the automate or its complementary ?
+ 1. This automate
+ 2. The complementary
 
-Enter "end" to stop the loop.
-Enter the word to recognize :
- -> abdc
-
-
-No transition with the character b has not been found
-Sorry, the word " abdc "is not recognize by this automaton
+ -> 1
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
  -> abcd
 
+- A transition with the character b has been found from 12 to 23
+- A transition with the character c has been found from 23 to 34
+- A transition with the character d has been found from 34 to 40
 
-No transition with the character b has not been found
-Sorry, the word " abcd "is not recognize by this automaton
+The word abcd is succefully recognize
+
+Enter "end" to stop the loop.
+Enter the word to recognize :
+ -> aaaa
+
+- A transition with the character a has been found from 12 to 12
+- A transition with the character a has been found from 12 to 12
+- A transition with the character a has been found from 12 to 12
+
+The last state to complete the word " aaaa " isn't a terminal so it's not recognize ! (Last state : 12)
 
 Enter "end" to stop the loop.
 Enter the word to recognize :
