@@ -69,5 +69,8 @@ Run the program :
 ```python3 main.py```
 ## Lessons Learned
 
-What did you learn while building this project? What challenges did you face and how did you overcome them?
+- What did you learn while building this project? What challenges did you face and how did you overcome them?
 
+Managing our time and working together have been complicated challenges. 
+
+Some tasks required others and so we had to organize ourselves so that each of us could finish his or her duties properly and then hand over to another person.
