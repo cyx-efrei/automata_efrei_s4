@@ -44,6 +44,7 @@ Written in python, this program offers several features:
 - [@Alinahas1311](https://www.github.com/alinahas1311)
 - [@nkrief4](https://www.github.com/nkrief4)
 - [@P4ND4P0W3R](https://www.github.com/P4ND4P0W3R)
+- Louis Fabre
 <br>
 <hr>
 <br>
