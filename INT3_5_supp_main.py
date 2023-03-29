@@ -17,11 +17,7 @@ def afficher_menu():
 
 def choose_file():
     print("Please, enter your number of automaton to test :\n", end="")
-    file_name = "-1"
-    while file_name < '1' or file_name > '44':
-        file_name = input("-> ")
-        if (file_name < '1' or file_name > '44'):
-            print("\nPlease redo :")
+    file_name = input("-> ")
 
     return "./INT3_5_automate/INT3_5_" + str(file_name) + ".txt"
 
