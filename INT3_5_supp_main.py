@@ -17,11 +17,20 @@ def afficher_menu():
 
 def choose_file():
     print("Please, enter your number of automaton to test :\n", end="")
-    file_name = "-1"
-    while file_name < '1' or file_name > '44':
-        file_name = input("-> ")
-        if (file_name < '1' or file_name > '44'):
-            print("\nPlease redo :")
+    file_name = str(input("-> "))
+    while file_name.isalpha():
+        print("\nPlease redo :")
+        file_name = str(input("-> "))
+        if (file_name.isalpha()):
+            continue
+        else:
+            break
+    file_name = int(file_name)
+    while file_name < 1 or file_name > 44:
+        print("\nPlease redo :")
+        file_name = int(input("-> "))
+        if (file_name < 1 or file_name > 44):
+            continue
 
     return "./INT3_5_automate/INT3_5_" + str(file_name) + ".txt"
 
