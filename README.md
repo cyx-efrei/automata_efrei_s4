@@ -4,7 +4,7 @@
 Pour visualiser correctement ce fichier, merci de l'ouvrir sur le repo git associé : https://github.com/Cyrilnkl/automata_efrei_s4.git
 
 Project of S4 in Finite Automata, Efrei.
-
+ 
 Written in python, this program offers several features:
 
 -  Reading a FA
@@ -44,6 +44,7 @@ Written in python, this program offers several features:
 - [@Alinahas1311](https://www.github.com/alinahas1311)
 - [@nkrief4](https://www.github.com/nkrief4)
 - [@P4ND4P0W3R](https://www.github.com/P4ND4P0W3R)
+- Louis Fabre
 <br>
 <hr>
 <br>
@@ -68,5 +69,8 @@ Run the program :
 ```python3 main.py```
 ## Lessons Learned
 
-What did you learn while building this project? What challenges did you face and how did you overcome them?
+- What did you learn while building this project? What challenges did you face and how did you overcome them?
 
+Managing our time and working together have been complicated challenges. 
+
+Some tasks required others and so we had to organize ourselves so that each of us could finish his or her duties properly and then hand over to another person.
